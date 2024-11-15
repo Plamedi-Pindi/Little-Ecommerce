@@ -2,24 +2,38 @@
 import { NavigateBackHeader } from "../../layouts/components/Header";
 import Section from "../../components/Section/Section";
 import FlexContainer from "../../components/Containers/FlexContainer";
-import Card from "../../components/Cards/Card";
-
+import LoveComponent from "../../components/Rate/LoveComponent";
 // Hooks
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 // icons
-import { BsHeart, BsCheck2, BsBag, BsChatDots } from "react-icons/bs";
+import {
+  BsCheck2,
+  BsBag,
+  BsChatDots,
+  BsBagPlus,
+} from "react-icons/bs";
 
+const color = ["bg-rose-400", "bg-pink-400", "bg-blue-400", "bg-yellow-400"];
+
+// MAIN FUNCTION
 export default function Details() {
+  const [colorIndex, setColorIndex] = useState(0); // State for color index
   const navigate = useNavigate();
 
+  // Functio ro navigate to the home page
   const handleBacktoClick = () => {
     navigate("/");
   };
 
+  // Function to change the product color
+  const handleProductColorClick = (index) => {
+    setColorIndex(index);
+  };
+
   return (
-    <div className="pb-12">
+    <div className="w-full h-screen overflow-y-auto pb-12">
       <div className="w-full h-96 bg-zinc-500 pt-4 p-1 mb-4 clip ">
         <NavigateBackHeader
           color={"text-zinc-200"}
@@ -32,54 +46,77 @@ export default function Details() {
         Product name jwpejpfoef
       </h3>
 
-      {/* Product Price */}
       <div className="pr-4 pl-4 flex justify-between items-center">
+        {/* Product Price */}
         <h2 className="text-lg font-bold">10.000,00kz</h2>
 
-        <div className="shadow-lg w-8 h-8 flex items-center justify-center rounded-full">
-          <BsHeart className={`text-base `} />
-        </div>
+        {/* Render icon to display whether the Product is licked or not */}
+        <LoveComponent size={'w-8 h-8'} font={'text-base'}/>
+
       </div>
 
+      {/* Render product different color */}
       <div className="pr-4 pl-4 mt-6">
         <FlexContainer>
-          <Circle size={"w-6 h-6"} background={"bg-rose-400"} margin={'mr-2.5'}/>
-          <Circle size={"w-6 h-6"} background={"bg-pink-400"} margin={'mr-2.5'}/>
-          <Circle size={"w-6 h-6"} background={"bg-blue-400"} margin={'mr-2.5'}/>
-          <Circle size={"w-6 h-6"} background={"bg-yellow-400"} margin={'mr-2.5'}/>
+          {color.map((color, i) => (
+            <Circle
+              key={i}
+              size={"w-6 h-6"}
+              background={color}
+              margin={"mr-2.5"}
+              isClicked={colorIndex === i}
+              onclick={() => handleProductColorClick(i)}
+            />
+          ))}
+
         </FlexContainer>
       </div>
 
-      <Section title={'Descrição'} box={'mt-5'}>
+      {/* Render the product Description  */}
+      <Section title={"Descrição"} box={"mt-5"}>
         <div className="text-sm text-justify text-neutral-500">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint asperiores amet quaerat. Quas praesentium nisi in iure saepe commodi impedit voluptas aperiam. Perspiciatis repellat debitis amet atque hic assumenda modi?</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
+            asperiores amet quaerat. Quas praesentium nisi in iure saepe commodi
+            impedit voluptas aperiam. Perspiciatis repellat debitis amet atque
+            hic assumenda modi?
+          </p>
         </div>
       </Section>
 
       <div className="pr-4 pl-4 fixed bottom-4 flex justify-between items-center  w-full">
         <div className="flex">
           <button className="bg-zinc-100 p-1 w-14 h-10 rounded-lg text-neutral-600 mr-5 flex items-center justify-center  ">
-            <BsChatDots className="text-lg"/>
+            <BsChatDots className="text-lg" />
           </button>
 
           <button className="bg-zinc-100 p-1 w-14 h-10 rounded-lg text-neutral-600 flex items-center justify-center ">
-            <BsBag className="text-lg"/>
+            <BsBag className="text-lg" />
           </button>
         </div>
-        <button className="text-sm bg-neutral-700 text-white w-36 h-10 p-1 rounded-lg ">
-          Adicionar à sacola
+        <button className="text-sm bg-neutral-700 text-white w-40 h-10 p-1 rounded-lg flex items-center justify-center">
+          <BsBagPlus className="mr-2 text-base" />
+          <span>Adicionar à sacola</span>
         </button>
       </div>
     </div>
   );
 }
 
-const Circle = ({ size, background, margin }) => {
-  
+// Component to Render the circle shape tha going to display de product color
+const Circle = ({ size, background, margin, onclick, isClicked }) => {
   return (
-    <div className= {`border border-blue-400 p-0.5 ${margin} rounded-full`} >
-      <div className={`${size} ${background} rounded-full flex items-center justify-center text-white`}>
-        <BsCheck2 />
+    <div
+      onClick={onclick}
+      className={` ${
+        isClicked ? " border-blue-400" : "border-white"
+      } border p-0.5 ${margin} rounded-full`}
+    >
+      <div
+        className={`${size} ${background} rounded-full flex items-center justify-center text-white`}
+      >
+        {/* Render Check icon while the component is clicked */}
+        {isClicked && <BsCheck2 />}
       </div>
     </div>
   );

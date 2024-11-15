@@ -1,6 +1,9 @@
 // icons
 import { BsHeart, BsHeartFill } from "react-icons/bs";
 
+// Components
+import LoveComponent from "../Rate/LoveComponent";
+
 // Router
 import { useNavigate } from "react-router-dom";
 
@@ -20,11 +23,7 @@ export default function ProductCard({ title, isLoved }) {
         <div className="flex items-center justify-between mt-2 text-zinc-900">
           <p className="font-bold text-sm">10.000,00kz</p>
 
-          {isLoved ? (
-            <BsHeartFill className={`text-base text-orange-400 `} />
-          ) : (
-            <BsHeart className={`text-base `} />
-          )}
+          <LoveComponent size={'w-6 h-6'} font={'text-sm'}/>
         </div>
       </div>
     </div>

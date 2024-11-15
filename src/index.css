@@ -25,3 +25,51 @@
   clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 80% );
 }
 
+.robotJump {
+  animation-name: robotJump;
+  animation-duration: 2s;
+  animation-delay: 2s;
+  animation-timing-function: ease-in-out;
+  
+}
+
+/* .robotRotate{
+  animation-name: robotRotate;
+  animation-duration: 2s;
+  animation-delay: 5s;
+  animation-timing-function: ease-in-out;
+} */
+
+@keyframes robotJump {
+  0%{
+    margin-bottom: 14px;
+  }
+  25%{
+    margin-bottom: 0;
+  }
+  50%{
+    margin-bottom: 10px;
+  }
+  100%{
+    margin-bottom: 0;
+  }
+}
+
+@keyframes robotRotate {
+  0%{
+    transform: rotate(30deg);
+  }
+  25%{
+    transform: rotate(-30deg);
+  }
+  50%{
+    transform: rotate(30deg);
+  }
+  75%{
+    transform: rotate(-30deg);
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+
+}
