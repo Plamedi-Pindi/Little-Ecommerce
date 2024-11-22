@@ -10,6 +10,7 @@ import ProductCard from "../../components/Cards/ProductCard";
 import VirtualAssistent from "../../components/virtualAssistent/VirtualAssistent";
 import Banner from "../../components/Banner/Banner";
 import GaleryGrid from "../../components/Grid/GaleryGrid";
+import ServicesSection from "../../components/Services/ServicesSection";
 
 export default function Home() {
   return (
@@ -46,6 +47,11 @@ export default function Home() {
       <Section title={'Galeria'} allOption={'Ver todas'} box={'mt-8'}>
         <GaleryGrid />
       </Section>
+
+      {/* Services */}
+      <ServicesSection />
+
+
 
       {/* Virtual Assintence */}
       <VirtualAssistent position={"bottom-4 right-3"} size={"w-14 h-14"} font={'text-2xl'}/>
