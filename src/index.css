@@ -73,3 +73,8 @@
   }
 
 }
+
+.scrollbar-hidden::-webkit-scrollbar{
+  width: 9px;
+}
+ 

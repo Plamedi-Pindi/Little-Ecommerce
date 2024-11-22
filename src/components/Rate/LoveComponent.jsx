@@ -5,11 +5,11 @@ import { BsHeart, BsHeartFill } from "react-icons/bs";
 
 // Main Functtion
 export default function LoveComponent({ size, font }) {
-  const [isLoved, setIsLoved] = useState(true);
+  const [isLoved, setIsLoved] = useState(false);
 
   // Function to Like or unlike a product
   const handleLoveProductClick = (e) => {
-    e.Propagation
+    e.stopPropagation();
     setIsLoved(!isLoved);
   };
   return (
@@ -24,7 +24,7 @@ export default function LoveComponent({ size, font }) {
       ) : (
         <div
           onClick={handleLoveProductClick}
-          className={`shadow-lg  flex items-center justify-center rounded-full ${size}`}
+          className={`shadow-lg bg-white flex items-center justify-center rounded-full ${size}`}
         >
           <BsHeart className={` ${font} text-yellow-700`} />
         </div>
