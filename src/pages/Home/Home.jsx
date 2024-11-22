@@ -8,6 +8,8 @@ import SmallCard from "../../components/Cards/SmallCard";
 import FlexContainer from "../../components/Containers/FlexContainer";
 import ProductCard from "../../components/Cards/ProductCard";
 import VirtualAssistent from "../../components/virtualAssistent/VirtualAssistent";
+import Banner from "../../components/Banner/Banner";
+import GaleryGrid from "../../components/Grid/GaleryGrid";
 
 export default function Home() {
   return (
@@ -35,6 +37,14 @@ export default function Home() {
           <ProductCard title={"product name"} />
           <ProductCard title={"product name"} />
         </FlexContainer>
+      </Section>
+
+      {/* Banner */}
+      <Banner />
+
+      {/* Galeria */}
+      <Section title={'Galeria'} allOption={'Ver todas'} box={'mt-8'}>
+        <GaleryGrid />
       </Section>
 
       {/* Virtual Assintence */}
