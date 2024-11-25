@@ -1,6 +1,6 @@
-export default function ServicesSection({ children }) {
+export default function ServicesSection({ margins }) {
   return (
-    <div className={`h-screen w-full bg-[#151618] rounded-xl relative `}>
+    <div className={`h-screen w-full bg-[#151618] rounded-xl relative ${margins}  `}>
       <div className="w-full h-full grid grid-rows-6 grid-flow-col gap-2 grid-cols- overflow-hidden relative ">
         <GridImage
           grid={"row-span-1 -ml-5 mr-28 -mt-10 mb-10 "}
@@ -57,13 +57,16 @@ const GridImage = ({ grid, imgUrl }) => {
 
 const Boxx = () => {
   return (
+    // Background
     <div className="w-full h-full bg-gradient-to-t from-[#30343f] to-60% absolute top-0 left-0 p-2 flex justify-center items-end z-[2]  ">
-      <div className="bg-white/10 backdrop-blur-sm w-[95%]  h-[15rem] mb-10 p-4 rounded-[2rem] flex flex-col items-center text-white text-center">
-        <h2 className="text-2xl mb-3 font-bold"> Start creating your unique  images</h2>
+
+      {/* Box of constent */}
+      <div className="bg-white/20 backdrop-blur-sm sl:w-[80%] w-[85%]  h-[16rem] mb-10 p-4 rounded-[2rem] flex flex-col items-center text-white text-center">
+        <h2 className="text-2xl mb-4 font-bold"> Start creating your unique  images</h2>
 
         <p className="text-sm mb-3">Lorem ipsum, dolor sit amet lankg eoopwqew consectetur adipisicing elit. Sapiente, neque.</p>
 
-        <button className="bg-[#fcabff] text-black w-32 h-12 rounded-full text-sm ">Get started</button>
+        <button className="bg-[#fcabff] text-black w-32 h-12 rounded-full text-sm mt-4 active:bg-[#f884fc] ">Get started</button>
       </div>
     </div>
   );

@@ -11,10 +11,12 @@ import VirtualAssistent from "../../components/virtualAssistent/VirtualAssistent
 import Banner from "../../components/Banner/Banner";
 import GaleryGrid from "../../components/Grid/GaleryGrid";
 import ServicesSection from "../../components/Services/ServicesSection";
+import Footer from "../../layouts/components/Footer";
+import Card from "../../components/Cards/Card";
 
 export default function Home() {
   return (
-    <div className="w-full h-screen overflow-y-auto relative pb-8">
+    <div className="w-full h-screen overflow-y-auto relative">
       <Header />
       <SearchForm />
       <Hero />
@@ -44,17 +46,33 @@ export default function Home() {
       <Banner />
 
       {/* Galeria */}
-      <Section title={'Galeria'} allOption={'Ver todas'} box={'mt-8'}>
+      <Section title={"Galeria"} allOption={"Ver todas"} box={"mt-8"}>
         <GaleryGrid />
       </Section>
 
       {/* Services */}
-      <ServicesSection />
+      <ServicesSection margins={"mt-10"} />
 
-
+      {/*  */}
+      <Section title={"Galeria"}  box={"mt-8"}>
+        <HorizontalScrollContainer>
+          <Card background="bg-zinc-600" boxSize="w-40 h-52"></Card>
+          <Card background="bg-zinc-600" boxSize="w-40 h-52"></Card>
+          <Card background="bg-zinc-600" boxSize="w-40 h-52"></Card>
+          <Card background="bg-zinc-600" boxSize="w-40 h-52"></Card>
+          <Card background="bg-zinc-600" boxSize="w-40 h-52"></Card>
+        </HorizontalScrollContainer>
+      </Section>
 
       {/* Virtual Assintence */}
-      <VirtualAssistent position={"bottom-4 right-3"} size={"w-14 h-14"} font={'text-2xl'}/>
+      <VirtualAssistent
+        position={"bottom-4 right-3"}
+        size={"w-14 h-14"}
+        font={"text-2xl"}
+      />
+
+
+      <Footer></Footer>
     </div>
   );
 }
