@@ -13,10 +13,11 @@ import GaleryGrid from "../../components/Grid/GaleryGrid";
 import ServicesSection from "../../components/Services/ServicesSection";
 import Footer from "../../layouts/components/Footer";
 import Card from "../../components/Cards/Card";
+import BenefitShowComponent from "./components/BenefitShowComponent";
 
 export default function Home() {
   return (
-    <div className="w-full h-screen overflow-y-auto relative">
+    <div className="w-full h-screen overflow-y-auto relative bg-[#FFF8E8]">
       <Header />
       <SearchForm />
       <Hero />
@@ -45,6 +46,27 @@ export default function Home() {
       {/* Banner */}
       <Banner />
 
+      <Section title={"Por que solicitar nossos serviços?"} box="mt-8">
+        <HorizontalScrollContainer>
+          <BenefitShowComponent
+            title="Lenços Exclusivos e Elegantes"
+            desc="Designs únicos e de alta qualidade, perfeitos para qualquer ocasião especial."
+          />
+          <BenefitShowComponent
+            title="Abanicos Sofisticados"
+            desc="Acrescente um toque de classe ao seu casamento ou evento."
+          />
+          <BenefitShowComponent
+            title="Amarração Personalizada"
+            desc="Transformamos o lenço ideal no estilo perfeito, feito por profissionais experientes."
+          />
+          <BenefitShowComponent
+            title="Atendimento em Domicílio"
+            desc="Não tem tempo para vir até nós? Nossa equipe vai até você para realizar o serviço com conforto e praticidade."
+          />
+        </HorizontalScrollContainer>
+      </Section>
+
       {/* Galeria */}
       <Section title={"Galeria"} allOption={"Ver todas"} box={"mt-8"}>
         <GaleryGrid />
@@ -53,24 +75,13 @@ export default function Home() {
       {/* Services */}
       <ServicesSection margins={"mt-10"} />
 
-      {/*  */}
-      <Section title={"Galeria"}  box={"mt-8"}>
-        <HorizontalScrollContainer>
-          <Card background="bg-zinc-600" boxSize="w-40 h-52"></Card>
-          <Card background="bg-zinc-600" boxSize="w-40 h-52"></Card>
-          <Card background="bg-zinc-600" boxSize="w-40 h-52"></Card>
-          <Card background="bg-zinc-600" boxSize="w-40 h-52"></Card>
-          <Card background="bg-zinc-600" boxSize="w-40 h-52"></Card>
-        </HorizontalScrollContainer>
-      </Section>
-
+     
       {/* Virtual Assintence */}
       <VirtualAssistent
         position={"bottom-4 right-3"}
         size={"w-14 h-14"}
         font={"text-2xl"}
       />
-
 
       <Footer></Footer>
     </div>

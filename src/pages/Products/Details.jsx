@@ -22,10 +22,11 @@ export default function Details() {
   const [colorIndex, setColorIndex] = useState(0); // State for color index
   const navigate = useNavigate();
 
-  // Functio ro navigate to the home page
+  // Function to navigate to the home page
   const handleBacktoClick = () => {
     navigate("/");
   };
+
 
   // Function to change the product color
   const handleProductColorClick = (index) => {
