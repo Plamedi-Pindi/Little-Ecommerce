@@ -62,7 +62,7 @@ export default function Home() {
           />
           <BenefitShowComponent
             title="Atendimento em Domicílio"
-            desc="Não tem tempo para vir até nós? Nossa equipe vai até você para realizar o serviço com conforto e praticidade."
+            desc="Nossa equipe vai até você para realizar o serviço com conforto e praticidade."
           />
         </HorizontalScrollContainer>
       </Section>
