@@ -53,7 +53,7 @@ export default function Home() {
             desc="Designs únicos e de alta qualidade, perfeitos para qualquer ocasião especial."
           />
           <BenefitShowComponent
-            title="Abanicos Sofisticados"
+            title="Abanoss Sofisticados"
             desc="Acrescente um toque de classe ao seu casamento ou evento."
           />
           <BenefitShowComponent
