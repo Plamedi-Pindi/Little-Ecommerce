@@ -1,15 +1,82 @@
+import { useState, useRef, useEffect } from "react";
 
-export default function BenefitShowComponent({desc, title}) {
-  return (
-    <div className="bg-white shadow-lg w-48 h-56 p-2 rounded-xl flex flex-col items-center shrink-0 relative">
-        <img src="1.png" className="absolute  top-0 left-0 w-full h-full object-cover rounded-xl opacity-60"/>
+export default function BenefitShowComponent({ desc, title }) {
+  const [isImageLoad, setIsImageLoad] = useState(false);
+  const [color, setColor] = useState("#ddd");
 
-        <div className="bg-zinc-400 w-[4rem] h-[4rem] z-10 mb-3 mt-2 rounded-full">
+  const imageLoudRef = useRef(null);
 
-        </div>
-        <h2 className="text-sm text-center font-medium text-zinc-700 z-10 mb-2">{title}</h2>
+  const handleImageLoadStart = () => {
+    setIsImageLoad(true);
+  };
+
+  const handleImageLoadComplete = () => {
+    setIsImageLoad(false);
+  };
+
+  const element = imageLoudRef.current;
+
+  useEffect(() => {
+    if (element && isImageLoad) {
+      const childDivs = element.querySelectorAll("div");
+
+      childDivs.forEach((child) => {
+        child.style.background = color;
+        child.style.transition = ".5s ";
+      });
+    }
+  }, [color, isImageLoad]);
+
+  useEffect(() => {
+    // Function
+    const loading = () => {
+      if (isImageLoad) {
+        setColor((prevColor) => (prevColor === "#ddd" ? "#eee" : "#ddd"));
+      }
+    };
+
+    const interval = setInterval(() => {
+      loading();
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [isImageLoad]);
+
+  //
+  let elemtens;
+
+  if (isImageLoad) {
+    elemtens = (
+      <div
+        ref={imageLoudRef}
+        className="bg-white shadow-lg w-48 h-56 p-2 rounded-xl flex flex-col items-center shrink-0 relative"
+      >
+        <div className=" w-[4rem] h-[4rem] z-10 mb-3 mt-2 rounded-full"></div>
+
+        <div className="w-[90%] h-3  mb-2 rounded-full"></div>
+
+        <div className="w-[90%] h-20  mb-2 rounded-xl mt-4"></div>
+      </div>
+    );
+  } else {
+    elemtens = (
+      <div className="bg-white shadow-lg w-48 h-56 p-2 rounded-xl flex flex-col items-center shrink-0 relative">
+        <img
+          onLoadStart={handleImageLoadStart}
+          onLoad={handleImageLoadComplete}
+          src="1.png"
+          className="absolute  top-0 left-0 w-full h-full object-cover rounded-xl opacity-50"
+        />
+
+        <div className="bg-zinc-100 w-[4rem] h-[4rem] z-10 mb-3 mt-2 rounded-full"></div>
+        <h2 className="text-sm text-center font-medium text-zinc-700 z-10 mb-2">
+          {title}
+        </h2>
 
         <p className="text-center text-sm text-zinc-500 z-10">{desc}</p>
-    </div>
-  )
+      </div>
+    );
+  }
+
+  return elemtens;
 }

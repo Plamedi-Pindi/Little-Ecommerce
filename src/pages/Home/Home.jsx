@@ -46,7 +46,7 @@ export default function Home() {
       {/* Banner */}
       <Banner />
 
-      <Section title={"Por que solicitar nossos serviços?"} box="mt-8">
+      <Section title={"Por que solicitar nossos serviços?"} box="mt-8 ">
         <HorizontalScrollContainer>
           <BenefitShowComponent
             title="Lenços Exclusivos e Elegantes"
