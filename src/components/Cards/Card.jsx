@@ -1,6 +1,6 @@
 
-export default function Card({boxSize, margins, background, children, box}) {
+export default function Card({boxSize, margins, background, children, box, borderRadius}) {
   return (
-    <div className= {`  rounded-lg shrink-0 mb-1.5 ${boxSize} ${margins} ${background} ${box}`} > {children} </div>
+    <div className= {`   shrink-0 mb-1.5 ${boxSize} ${margins} ${background} ${box} ${borderRadius}`} > {children} </div>
   );
 }

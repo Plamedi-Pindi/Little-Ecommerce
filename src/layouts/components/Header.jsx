@@ -5,12 +5,12 @@ import {
   BsChevronLeft,
   BsBag,
   BsTextLeft,
-  BsPersonCircle
+  BsPersonCircle,
+  BsPerson,
 } from "react-icons/bs";
 
 // Hooks
 import { useNavigate } from "react-router-dom";
-
 
 // Main Function
 export default function Header() {
@@ -22,20 +22,25 @@ export default function Header() {
   };
 
   return (
-    <div className="flex justify-between p-2 pl-4 pr-4 mb-4 items-center">
-      <BsTextLeft className="text-3xl text-zinc-700" />
+    <div className="flex justify-between p-2 pl-4 pr-4 pt-4 mb-4 items-center">
+      <button className="basis-[10%] md:hidden">
+        <BsTextLeft className="text-3xl text-zinc-700  " />
+      </button>
 
-      <h2 className="text-lg font-bold text-zinc-700  flex-grow text-center">
+      <h2 className="text-lg font-bold text-zinc-700  flex-growtext-center ">
         Logo
       </h2>
 
-      <div className="flex">
+      <div className="flex justify-end basis-[18%]  ">
         <div>
-          <BsChatDots className="text-zinc-700 text-xl mr-4" />
+          <BsBag
+            onClick={handleCartClick}
+            className="text-zinc-700 text-xl mr-4"
+          />
         </div>
 
         <div>
-          <BsBag onClick={handleCartClick} className="text-zinc-700 text-xl" />
+          <BsPersonCircle className="text-zinc-700 text-xl " />
         </div>
       </div>
     </div>

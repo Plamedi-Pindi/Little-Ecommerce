@@ -1,0 +1,7 @@
+.Card:hover > .cardStyle{
+    width: 14rem;
+    height: 14rem;
+    bottom: -4rem;
+
+    transition: .5s ease-in;
+}

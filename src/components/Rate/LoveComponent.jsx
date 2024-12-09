@@ -17,14 +17,14 @@ export default function LoveComponent({ size, font }) {
       {isLoved ? (
         <div
           onClick={handleLoveProductClick}
-          className={`shadow-lg bg-yellow-600/90  flex items-center justify-center rounded-full ${size}`}
+          className={`shadow-lg bg-yellow-600/90  flex items-center justify-center rounded-full cursor-pointer ${size}`}
         >
           <BsHeartFill className={` ${font} text-white `} />
         </div>
       ) : (
         <div
           onClick={handleLoveProductClick}
-          className={`shadow-lg bg-white flex items-center justify-center rounded-full ${size}`}
+          className={`shadow-lg bg-white flex items-center justify-center rounded-full cursor-pointer ${size}`}
         >
           <BsHeart className={` ${font} text-yellow-700`} />
         </div>
