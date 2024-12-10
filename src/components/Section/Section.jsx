@@ -1,19 +1,28 @@
+import { BsArrowRight } from "react-icons/bs";
 
-
-export default function Section({title, children, allOption, box}) {
+export default function Section({
+  title,
+  children,
+  allOption,
+  box,
+  visibility,
+  styleBackground,
+  styleSet
+}) {
   return (
-    <section className= {`pl-4 pr-4 mb-6 ${box}`} >
-        <div className="flex justify-between items-center text-[#d7e6e6] mb-3">
-            <h2 className="text-lg font-bold text-[#7b4c2d] "> {title} </h2>
+    <section className={`pl-4 pr-4 mb-6 ${box} relative  z-10 `}>
+      <div className="flex justify-between items-center  mb-3 ">
+        <h2 className="text-lg font-bold text-[#7b4c2d] "> {title} </h2>
 
-            <button className="text-sm">
-                {allOption}
-            </button>
-        </div>
+        <button className="text-sm text-[#7b4c2d] flex items-center">
+          {allOption}
+          <BsArrowRight className={`text-base ml-1 ${visibility} `} />
+        </button>
+      </div>
 
-        <div>
-            {children}
-        </div>
+      <div className="">{children}</div>
+
+      <div className={` ${styleBackground} stu rounded-full absolute -z-[1] ${styleSet}`} ></div>
     </section>
-  )
+  );
 }

@@ -17,7 +17,7 @@ export default function ProductCard({ title, imgUrl }) {
         className="ProductCard w-[8.5rem] sl:w-40 h-56 sl:h-60 bg-white shrink-0 rounded-xl mb-7 shadow-xl shadow-zinc-600/30 cursor-pointer"
     >
       {/* Product picture */}
-      <div className="ProdCardShap w-full h-36 sl:h-40 rounded-xl bg-[#f8e2d3] clipInverse flex justify-center items-center p-2">
+      <div className="ProdCardShap w-full h-36 sl:h-40 rounded-xl bg-secundary clipInverse flex justify-center items-center p-2">
         <img src={imgUrl} alt={`Imagem do produto: ${title}`} className="w-[80%] h- mt-4" />
       </div>
 

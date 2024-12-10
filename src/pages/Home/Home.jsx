@@ -16,36 +16,53 @@ import BenefitShowComponent from "./components/BenefitShowComponent";
 
 export default function Home() {
   return (
-    <div className="w-full h-screen overflow-y-auto relative bg-[#faf7f6]">
+    <div className="w-full h-screen overflow-y-auto relative bg-primary overflow-hidden">
       <Header />
       <SearchForm />
       <Hero />
 
       {/* Category section */}
-      <Section title={"Categoria"} allOption={"Ver todos"}>
+      <Section
+        title={"Categoria"}
+        visibility="hidden"
+        styleBackground="bg-secundary/80"
+        styleSet={"w-40 h-40  top-0 -right-10"}
+      >
         <HorizontalScrollContainer>
-          <SmallCard title={"Lenços simples"} imgUrl='3.webp' />
-          <SmallCard title={"Lenços Longos"} imgUrl='4.jpg' />
-          <SmallCard title={"Abanos"} imgUrl='5.jpg'/>
-          <SmallCard title={"Lencos vb"} imgUrl='3.webp' />
-          <SmallCard title={"categoria"} imgUrl='4.jpg' />
+          <SmallCard title={"Lenços simples"} imgUrl="3.webp" />
+          <SmallCard title={"Lenços Longos"} imgUrl="4.jpg" />
+          <SmallCard title={"Abanos"} imgUrl="5.jpg" />
+          <SmallCard title={"Lencos vb"} imgUrl="3.webp" />
+          <SmallCard title={"categoria"} imgUrl="4.jpg" />
         </HorizontalScrollContainer>
       </Section>
 
       {/* Popular product */}
-      <Section title={"Popular"} allOption={"Ver todos"}>
+      <Section
+        title={"Popular"}
+        allOption={"Ver todos"}
+        styleSet="w-[20rem] h-[20rem] top-32 -left-[10rem]"
+        styleBackground="bg-details2"
+      >
         <FlexContainer flexMode={"justify-between flex-wrap"}>
-          <ProductCard title={"product name"} imgUrl='7.png' />
-          <ProductCard title={"product name"} imgUrl='6.png' />
-          <ProductCard title={"product name"} imgUrl='7.png' />
-          <ProductCard title={"product name"} imgUrl='6.png' />
+          <ProductCard title={"Product name"} imgUrl="7.png" />
+          <ProductCard title={"Product name"} imgUrl="6.png" />
+          <ProductCard title={"Product name"} imgUrl="7.png" />
+          <ProductCard title={"Product name"} imgUrl="6.png" />
         </FlexContainer>
       </Section>
 
       {/* Banner */}
       <Banner />
 
-      <Section title={"Por que solicitar nossos serviços?"} box="mt-8 ">
+      {/*  */}
+      <Section
+        title={"Por que solicitar nossos serviços?"}
+        box="mt-8 "
+        visibility="hidden"
+        styleBackground="bg-details2/80"
+        styleSet={"w-40 h-40  -bottom-10 right-20"}
+      >
         <HorizontalScrollContainer>
           <BenefitShowComponent
             title="Lenços Exclusivos e Elegantes"
@@ -73,14 +90,13 @@ export default function Home() {
       </Section>
 
       {/* Galeria */}
-      <Section title={"Galeria"} allOption={"Ver todas"} box={"mt-8"}>
+      <Section title={"Galeria"} allOption={"Ver todas"} box={"mt-8"} styleSet={'hidden'}>
         <GaleryGrid />
       </Section>
 
       {/* Services */}
       <ServicesSection margins={"mt-10"} />
 
-     
       {/* Virtual Assintence */}
       <VirtualAssistent
         position={"bottom-4 right-3"}

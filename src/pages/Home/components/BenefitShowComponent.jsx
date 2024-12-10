@@ -82,7 +82,7 @@ export default function BenefitShowComponent({ desc, title, imgUrl, imgDim }) {
         <p className="text-center text-sm text-[#7b4c2d] z-10 cursor-default">{desc}</p>
 
 
-          <div className="cardStyle bg-[#f8e2d3]   w-[4rem] h-[4rem]  absolute -bottom-10 -right-5  mb-3 mt-2 rounded-full"></div>
+          <div className="cardStyle bg-secundary   w-[4rem] h-[4rem]  absolute -bottom-10 -right-5  mb-3 mt-2 rounded-full"></div>
       </div>
     );
   }
