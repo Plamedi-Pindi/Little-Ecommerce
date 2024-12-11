@@ -5,7 +5,7 @@ export default function Section({
   children,
   allOption,
   box,
-  visibility,
+  iconVisibility,
   styleBackground,
   styleSet
 }) {
@@ -16,7 +16,7 @@ export default function Section({
 
         <button className="text-sm text-[#7b4c2d] flex items-center">
           {allOption}
-          <BsArrowRight className={`text-base ml-1 ${visibility} `} />
+          <BsArrowRight className={`text-base ml-1 ${iconVisibility} `} />
         </button>
       </div>
 

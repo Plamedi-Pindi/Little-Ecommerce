@@ -10,7 +10,6 @@ import ProductCard from "../../components/Cards/ProductCard";
 import VirtualAssistent from "../../components/virtualAssistent/VirtualAssistent";
 import Banner from "../../components/Banner/Banner";
 import GaleryGrid from "../../components/Grid/GaleryGrid";
-import ServicesSection from "../../components/Services/ServicesSection";
 import Footer from "../../layouts/components/Footer";
 import BenefitShowComponent from "./components/BenefitShowComponent";
 
@@ -24,7 +23,7 @@ export default function Home() {
       {/* Category section */}
       <Section
         title={"Categoria"}
-        visibility="hidden"
+        iconVisibility="hidden"
         styleBackground="bg-secundary/80"
         styleSet={"w-40 h-40  top-0 -right-10"}
       >
@@ -39,17 +38,131 @@ export default function Home() {
 
       {/* Popular product */}
       <Section
-        title={"Popular"}
+        title={"Popularres"}
         allOption={"Ver todos"}
         styleSet="w-[20rem] h-[20rem] top-32 -left-[10rem]"
         styleBackground="bg-details2"
       >
         <FlexContainer flexMode={"justify-between flex-wrap"}>
-          <ProductCard title={"Product name"} imgUrl="7.png" />
-          <ProductCard title={"Product name"} imgUrl="6.png" />
-          <ProductCard title={"Product name"} imgUrl="7.png" />
-          <ProductCard title={"Product name"} imgUrl="6.png" />
+          <ProductCard
+            title={"Product name"}
+            price={"10.000,00kz"}
+            imgUrl="7.png"
+            width=" w-[8.5rem] sl:w-40 sls:w-[9.7rem] slm:w-44"
+            height="h-56 sl:h-60"
+            CardDesignHeight="h-36 sl:h-40"
+            imgWidth="w-[80%]"
+          />
+          <ProductCard
+            title={"Product name"}
+            price={"10.000,00kz"}
+            imgUrl="6.png"
+            width=" w-[8.5rem] sl:w-40 sls:w-[9.7rem] slm:w-44"
+            height="h-56 sl:h-60"
+            CardDesignHeight="h-36 sl:h-40"
+            imgWidth="w-[80%]"
+          />
+          <ProductCard
+            title={"Product name"}
+            price={"10.000,00kz"}
+            imgUrl="7.png"
+            width=" w-[8.5rem] sl:w-40 sls:w-[9.7rem] slm:w-44"
+            height="h-56 sl:h-60"
+            CardDesignHeight="h-36 sl:h-40"
+            imgWidth="w-[80%]"
+          />
+          <ProductCard
+            title={"Product name"}
+            price={"10.000,00kz"}
+            imgUrl="6.png"
+            width=" w-[8.5rem] sl:w-40 sls:w-[9.7rem] slm:w-44"
+            height="h-56 sl:h-60"
+            CardDesignHeight="h-36 sl:h-40"
+            imgWidth="w-[80%]"
+          />
         </FlexContainer>
+      </Section>
+
+      {/* LENÇOS */}
+      <Section
+        title="Lenços"
+        allOption="Ver todos"
+        styleSet="w-28 h-28 bottom-0 right-10"
+        styleBackground="bg-details2"
+      >
+        <HorizontalScrollContainer>
+          <ProductCard
+            width="w-48"
+            height="h-64"
+            imgUrl="6.png"
+            CardDesignHeight="h-44"
+            imgWidth="w-[68%]"
+            title="Product Name"
+            price={"10.000,00kz"}
+            oldPrice={"15.000,00kz"}
+          />
+          <ProductCard
+            width="w-48"
+            height="h-64"
+            imgUrl="7.png"
+            CardDesignHeight="h-44 "
+            imgWidth="w-[68%]"
+            title="Product Name"
+            price={"10.000,00kz"}
+            oldPrice={"15.000,00kz"}
+          />
+          <ProductCard
+            width="w-48"
+            height="h-64"
+            imgUrl="6.png"
+            CardDesignHeight="h-44"
+            imgWidth="w-[68%]"
+            title="Product Name"
+            price={"10.000,00kz"}
+            oldPrice={"15.000,00kz"}
+          />
+        </HorizontalScrollContainer>
+      </Section>
+
+      {/* ABANOS */}
+      <Section
+        title="Abanos"
+        allOption="Ver todos"
+        styleSet="w-28 h-28 bottom-0 left-10"
+        styleBackground="bg-details2"
+      >
+        <HorizontalScrollContainer>
+          <ProductCard
+            width="w-48"
+            height="h-64"
+            imgUrl="6.png"
+            CardDesignHeight="h-44"
+            imgWidth="w-[68%]"
+            title="Product Name"
+            price={"10.000,00kz"}
+            oldPrice={"15.000,00kz"}
+          />
+          <ProductCard
+            width="w-48"
+            height="h-64"
+            imgUrl="7.png"
+            CardDesignHeight="h-44 "
+            imgWidth="w-[68%]"
+            title="Product Name"
+            price={"10.000,00kz"}
+            oldPrice={"15.000,00kz"}
+          />
+          <ProductCard
+            width="w-48"
+            height="h-64"
+            imgUrl="6.png"
+            CardDesignHeight="h-44"
+            imgWidth="w-[68%]"
+            title="Product Name"
+            price={"10.000,00kz"}
+            oldPrice={"15.000,00kz"}
+          />
+        </HorizontalScrollContainer>
       </Section>
 
       {/* Banner */}
@@ -59,7 +172,7 @@ export default function Home() {
       <Section
         title={"Por que solicitar nossos serviços?"}
         box="mt-8 "
-        visibility="hidden"
+        iconVisibility="hidden"
         styleBackground="bg-details2/80"
         styleSet={"w-40 h-40  -bottom-10 right-20"}
       >
@@ -90,12 +203,15 @@ export default function Home() {
       </Section>
 
       {/* Galeria */}
-      <Section title={"Galeria"} allOption={"Ver todas"} box={"mt-8"} styleSet={'hidden'}>
+      <Section
+        title={"Galeria"}
+        allOption={"Ver todas"}
+        box={"mt-8"}
+        styleSet="w-48 h-48 -bottom-14 -left-5"
+        styleBackground="bg-secundary"
+      >
         <GaleryGrid />
       </Section>
-
-      {/* Services */}
-      <ServicesSection margins={"mt-10"} />
 
       {/* Virtual Assintence */}
       <VirtualAssistent
