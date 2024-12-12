@@ -1,6 +1,6 @@
 // icons
 import { BsHeart, BsHeartFill } from "react-icons/bs";
-import "./product.css";
+import "./Product.css";
 
 // Components
 import LoveComponent from "../Rate/LoveComponent";
