@@ -6,7 +6,7 @@ const attributes = {
     id: {
         type: DataTypes.STRING,
         allowNull: false,
-        autoIncrement: true,            
+        autoIncrement: true,
         primaryKey: true,
     },
     fristName: {
@@ -26,8 +26,10 @@ const attributes = {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    gender: { type: DataTypes.STRING },
-    imaage: {
+    gender: {
+        type: DataTypes.STRING
+    },
+    image: {
         type: DataTypes.STRING,
         allowNull: true
     }

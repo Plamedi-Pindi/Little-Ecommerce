@@ -1,8 +1,10 @@
 const { DataTypes } = require('sequelize');
 const db = require('../config/sequelize');
 
-const User = require('./User')
+// Import User Model
+const User = require('./User');
 
+// Atributes objects
 const attributes = {
     id: {
         type: DataTypes.STRING,
@@ -11,14 +13,14 @@ const attributes = {
         primaryKey: true,
     },
     ueseIid: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
         references: {
             model: User,  
             key: 'id', 
         },
     },
-}
+};
 
 // Model definition
 const Cliente = db.sequelize.define('Cliente', attributes);

@@ -7,7 +7,7 @@ module.exports = {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        autoIncrement: true,          
+        autoIncrement: true,
         primaryKey: true,
       },
       fristName: {
@@ -30,7 +30,7 @@ module.exports = {
       gender: {
         type: Sequelize.DataTypes.STRING
       },
-      imaage: {
+      image: {
         type: Sequelize.DataTypes.STRING,
         allowNull: true
       }

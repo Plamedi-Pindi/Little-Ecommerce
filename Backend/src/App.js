@@ -4,6 +4,8 @@ const cors = express('cors');
 const morgan = require('morgan');
 const routes = require('./routers');
 
+require('./config/relationships');
+
 require('./config/sequelize');
 
 const app = express();

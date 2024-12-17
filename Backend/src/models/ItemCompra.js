@@ -1,0 +1,46 @@
+const { DataTypes } = require('sequelize');
+const db = require('../config/sequelize');
+
+// Import Compra Model
+const Compra = require('./Compra');
+
+// Import Produto Model
+const Produto = require('./Produto');
+
+
+// Atributes objects
+const attributes = {
+    id: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+    },
+    compraId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: Compra,
+            key: 'id',
+        },
+    },
+    produtoId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: Produto,
+            key: 'id',
+        },
+    },
+
+};
+
+
+// Models Definition
+const ItemCompra = db.sequelize.define('ItemCompra', attributes);
+
+//Sync 
+ItemCompra.sync();
+
+// Model esportation
+module.exports = ItemCompra;
