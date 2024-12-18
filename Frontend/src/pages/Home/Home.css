@@ -1,0 +1,19 @@
+/* Estilo dos botões de navegação para a classe custom-swiper */
+.paginacao .swiper-button-next,
+.paginacao .swiper-button-prev {
+    color: #f8e2d3;
+    /* Cor laranja */
+}
+
+/* Estilo para o bullet ativo */
+.paginacao .swiper-pagination-bullet-active {
+    background-color: #fad2b8;
+    /* Cor do ponto ativo */
+}
+
+
+.paginacao .swiper-button-next:hover,
+.paginacao  .swiper-button-prev:hover {
+    color: #fad2b8;
+    /* Cor laranja mais escura no hover */
+}

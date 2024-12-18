@@ -12,6 +12,19 @@ import Banner from "../../components/Banner/Banner";
 import GaleryGrid from "../../components/Grid/GaleryGrid";
 import Footer from "../../layouts/components/Footer";
 import BenefitShowComponent from "./components/BenefitShowComponent";
+import TestimunialCard from "../../components/Testimunial/TestimunialCard";
+
+import "./Home.css";
+
+// Import React Swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper Styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 export default function Home() {
   return (
@@ -27,13 +40,32 @@ export default function Home() {
         styleBackground="bg-secundary/80"
         styleSet={"w-40 h-40  top-0 -right-10"}
       >
-        <HorizontalScrollContainer>
-          <SmallCard title={"Lenços simples"} imgUrl="3.webp" />
-          <SmallCard title={"Lenços Longos"} imgUrl="4.jpg" />
-          <SmallCard title={"Abanos"} imgUrl="5.jpg" />
-          <SmallCard title={"Lencos vb"} imgUrl="3.webp" />
-          <SmallCard title={"categoria"} imgUrl="4.jpg" />
-        </HorizontalScrollContainer>
+        <Swiper
+          modules={[Autoplay]}
+          slidesPerView={4}
+          spaceBetween={2}
+          loop={true}
+          speed={800}
+          autoplay={{
+            delay: 3000,
+          }}
+        >
+          <SwiperSlide>
+            <SmallCard title={"Lenços simples"} imgUrl="3.webp" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <SmallCard title={"Lenços Longos"} imgUrl="4.jpg" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <SmallCard title={"Abanos"} imgUrl="5.jpg" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <SmallCard title={"Lencos vb"} imgUrl="3.webp" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <SmallCard title={"categoria"} imgUrl="4.jpg" />
+          </SwiperSlide>
+        </Swiper>
       </Section>
 
       {/* Popular product */}
@@ -176,30 +208,70 @@ export default function Home() {
         styleBackground="bg-details2/80"
         styleSet={"w-40 h-40  -bottom-10 right-20"}
       >
-        <HorizontalScrollContainer>
-          <BenefitShowComponent
-            title="Lenços Exclusivos e Elegantes"
-            desc="Designs únicos e de alta qualidade, perfeitos para qualquer ocasião especial."
-            imgUrl="icon1.png"
-            imgDim="w-full"
-          />
-          <BenefitShowComponent
-            title="Abanos Sofisticados"
-            desc="Acrescente um toque de classe ao seu casamento ou evento."
-          />
-          <BenefitShowComponent
-            imgUrl="hairdresser.png"
-            imgDim="w-12"
-            title="Amarração Personalizada"
-            desc="Transformamos o lenço ideal no estilo perfeito, feito por profissionais experientes."
-          />
-          <BenefitShowComponent
-            imgUrl="trs.png"
-            imgDim="w-10"
-            title="Atendimento em Domicílio"
-            desc="Nossa equipe vai até você para realizar o serviço com conforto e praticidade."
-          />
-        </HorizontalScrollContainer>
+        <Swiper
+          modules={[Autoplay]}
+          slidesPerView={1}
+          spaceBetween={2}
+          loop={true}
+          speed={800}
+          autoplay={{
+            delay: 3000,
+          }}
+          centeredSlides={true}
+        >
+          <SwiperSlide>
+            <div className="flex justify-center items-center">
+              <BenefitShowComponent
+                title="Lenços Exclusivos e Elegantes"
+                desc="Designs únicos e de alta qualidade, perfeitos para qualquer ocasião especial."
+                imgUrl="icon1.png"
+                imgDim="w-full"
+              />
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <div className="flex justify-center items-center">
+              <BenefitShowComponent
+                title="Abanos Sofisticados"
+                desc="Acrescente um toque de classe ao seu casamento ou evento."
+              />
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <div className="flex justify-center items-center">
+              <BenefitShowComponent
+                imgUrl="hairdresser.png"
+                imgDim="w-12"
+                title="Amarração Personalizada"
+                desc="Transformamos o lenço ideal no estilo perfeito, feito por profissionais experientes."
+              />
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <div className="flex justify-center items-center">
+              <BenefitShowComponent
+                imgUrl="hairdresser.png"
+                imgDim="w-12"
+                title="Amarração Personalizada"
+                desc="Transformamos o lenço ideal no estilo perfeito, feito por profissionais experientes."
+              />
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <div className="flex justify-center items-center">
+              <BenefitShowComponent
+                imgUrl="trs.png"
+                imgDim="w-10"
+                title="Atendimento em Domicílio"
+                desc="Nossa equipe vai até você para realizar o serviço com conforto e praticidade."
+              />
+            </div>
+          </SwiperSlide>
+        </Swiper>
       </Section>
 
       {/* Galeria */}
@@ -211,6 +283,58 @@ export default function Home() {
         styleBackground="bg-secundary"
       >
         <GaleryGrid />
+      </Section>
+
+      {/* Testimunial */}
+      <Section
+        title="O que os nosso clientes dizem"
+        box="mt-14   h-[22rem] "
+        iconVisibility="hidden"
+      >
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          className="paginacao"
+          spaceBetween={2}
+          slidesPerView={1}
+          centeredSlides={true}
+          navigation
+          pagination={{
+            clickable: true,
+          }}
+          loop={true}
+          speed={800}
+          autoplay={{
+            delay: 3000,
+            pauseOnMouseEnter: true,
+            disableOnInteraction: true,
+          }}
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 4 },
+          }}
+        >
+          <SwiperSlide>
+            <div className="flex items-center justify-center">
+              <TestimunialCard
+                name="John Deo"
+                funct="Customer"
+                imgUrls="2.jpg"
+                desc=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, ab ea! Doloremque ab quibusdam beatae amet?"
+              />
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <div className="flex items-center justify-center">
+              <TestimunialCard
+                name="John Deo"
+                funct="Customer"
+                imgUrls="4.jpg"
+                desc=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, ab ea! Doloremque ab quibusdam beatae amet?"
+              />
+            </div>
+          </SwiperSlide>
+        </Swiper>
       </Section>
 
       {/* Virtual Assintence */}
