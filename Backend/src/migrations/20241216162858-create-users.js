@@ -34,7 +34,10 @@ module.exports = {
         type: Sequelize.DataTypes.STRING,
         allowNull: true
       }
-    });
+    },
+      {
+        timestamps: false
+      });
   },
 
   async down(queryInterface, Sequelize) {

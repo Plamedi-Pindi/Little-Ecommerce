@@ -1,11 +1,13 @@
 'use strict';
 
+
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('pedidos', {
       id: {
-        type: Sequelize.DataTypes.STRING,
+        type: Sequelize.DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -14,7 +16,7 @@ module.exports = {
         type: Sequelize.DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: Cliente,
+          model: 'clientes',
           key: 'id',
         },
       },
@@ -26,7 +28,10 @@ module.exports = {
         type: Sequelize.DataTypes.TIME,
         allowNull: false,
       },
-    });
+    },
+      {
+        timestamps: false
+      });
   },
 
   async down(queryInterface, Sequelize) {

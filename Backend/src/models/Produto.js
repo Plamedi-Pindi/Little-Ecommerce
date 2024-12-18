@@ -38,8 +38,11 @@ const attributes = {
     
 };
 
+// Defing timestamps
+const timestamps = { timestamps: false}
+
 // Models Definition
-const Produto = db.sequelize.define('Produto', attributes);
+const Produto = db.sequelize.define('Produto', attributes, timestamps);
 
 //Sync 
 Produto.sync();

@@ -22,8 +22,12 @@ const attributes = {
     },
 };
 
+
+// Defing timestamps
+const timestamps = { timestamps: false}
+
 // Model definition
-const Cliente = db.sequelize.define('Cliente', attributes);
+const Cliente = db.sequelize.define('Cliente', attributes, timestamps);
 
 // Sync with database
 Cliente.sync();

@@ -1,45 +1,38 @@
 const { DataTypes } = require('sequelize');
 const db = require('../config/sequelize');
 
-// Import Cliente Model
-const Cliente = require('./Cliente');
+// Import User Model
+const User = require('./User');
 
-// Atributes objects
+// Attributes Object
 const attributes = {
     id: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
     },
-    clienteId: {
+    userId: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: Cliente,  
+            model: User,  
             key: 'id', 
         },
     },
-    data: {
-        type: DataTypes.DATEONLY,
+    phone: {
+        type: DataTypes.STRING,
         allowNull: false,
-    },
-    hora: {
-        type: DataTypes.TIME,
-        allowNull: false,
-    },
-    
+    }
 };
 
 // Defing timestamps
 const timestamps = { timestamps: false}
 
-
 // Models Definition
-const Compra = db.sequelize.define('Compra', attributes, timestamps);
+const Contato = db.sequelize.define('Contato', attributes, timestamps);
 
 //Sync 
-Compra.sync();
+Contato.sync();
 
 // Model esportation
-module.exports = Compra;
+module.exports = Contato;

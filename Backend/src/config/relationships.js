@@ -1,3 +1,4 @@
+// Import Models
 const User = require('../models/User');
 const Cliente = require('../models/Cliente');
 const Produto = require('../models/Produto');
@@ -6,8 +7,10 @@ const Pedido = require('../models/Pedido');
 const Compra = require('../models/Compra');
 const ItemPedido = require('../models/ItemPedido');
 const ItemConpra = require('../models/ItemCompra');
+const Contato = require('../models/Contanto');
 
 
+// Associetion function
 const defineRelationShips = () => {
 
     /*====== User and Client =============*/
@@ -55,7 +58,7 @@ const defineRelationShips = () => {
     /*=======================================*/
 
 
-    /*====== ItemPedido and Pedido ==========*/
+    /*====== ItemConpra and Compra ==========*/
     Compra.hasMany(ItemConpra, {
         onDelete: 'NO ACTION',
         onUpdate: 'NO ACTION',
@@ -63,7 +66,18 @@ const defineRelationShips = () => {
     ItemConpra.belongsTo(Compra);
     /*=======================================*/
 
+
+    /*====== User and Contato ==========*/
+    User.hasMany(Contato, {
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+    });
+    Contato.belongsTo(User);
+    /*=======================================*/
+
+
+
 }
 
-// Exporting 
+// Exporting function
 module.exports = defineRelationShips;

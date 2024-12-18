@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: Categoria,
+          model: 'categorias',
           key: 'id',
         },
       },
@@ -33,7 +33,10 @@ module.exports = {
         type: Sequelize.DataTypes.DATEONLY,
         allowNull: false
       }
-    });
+    },
+      {
+        timestamps: false
+      });
   },
 
   async down(queryInterface, Sequelize) {

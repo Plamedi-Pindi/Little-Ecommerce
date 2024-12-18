@@ -35,8 +35,11 @@ const attributes = {
     }
 }
 
+// Defing timestamps
+const timestamps = { timestamps: false}
+
 // Model definition
-const User = db.sequelize.define('User', attributes);
+const User = db.sequelize.define('User', attributes, timestamps);
 
 // Sync with database
 User.sync();

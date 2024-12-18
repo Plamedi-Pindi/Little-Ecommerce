@@ -14,8 +14,11 @@ const attributes = {
     }
 }
 
+// Defing timestamps
+const timestamps = { timestamps: false}
+
 // Models Definition
-const Categoria = db.sequelize.define('Categoria', attributes);
+const Categoria = db.sequelize.define('Categoria', attributes, timestamps);
 
 //Sync 
 Categoria.sync();
