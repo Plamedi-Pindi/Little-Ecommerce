@@ -1,12 +1,11 @@
 //Icons
 import {
-  BsList,
   BsChatDots,
   BsChevronLeft,
   BsBag,
+  BsCart4,
   BsTextLeft,
   BsPersonCircle,
-  BsPerson,
 } from "react-icons/bs";
 
 // Hooks
@@ -24,7 +23,7 @@ export default function Header() {
   return (
     <div className="flex justify-between p-2 pl-4 pr-4 pt-4 mb-4 items-center">
       <button className="basis-[10%] md:hidden">
-        <BsTextLeft className="text-3xl text-zinc-700  " />
+        <BsTextLeft className="text-3xl text-details  " />
       </button>
 
       <h2 className="text-lg font-bold text-zinc-700  flex-growtext-center ">
@@ -33,7 +32,7 @@ export default function Header() {
 
       <div className="flex justify-end basis-[18%]  ">
         <div>
-          <BsBag
+          <BsCart4
             onClick={handleCartClick}
             className="text-zinc-700 text-xl mr-4"
           />
@@ -57,21 +56,21 @@ export const NavigateBackHeader = ({ color, backTo }) => {
 
   return (
     <div
-      className={`flex justify-between p-2 pl-4 pr-4 mb-4 items-center  ${color}`}
+      className={`flex text-details justify-between p-2 pl-4 pr-4 mb-4 items-center  ${color}`}
     >
       <button
         onClick={backTo}
-        className="border rounded-lg w-6 h-6 flex justify-center items-center"
+        className="border rounded-lg border-details w-6 h-6 flex justify-center items-center"
       >
-        <BsChevronLeft className="text-sm " />
+        <BsChevronLeft className="text-sm  text-details" />
       </button>
 
       <div className={`flex`}>
-        <div>
-          <BsChatDots className=" text-xl mr-4" />
+        <div> 
+          <BsChatDots className=" text-xl mr-4 text-details" />
         </div>
         <div>
-          <BsBag onClick={handleCartClick} className="text-xl" />
+          <BsCart4 onClick={handleCartClick} className="text-xl text-details" />
         </div>
       </div>
     </div>

@@ -15,6 +15,7 @@ export default {
       'sl': '370px',
       'sls': '360px',
       'slm': '400px',
+      'sc-430': '430px',
     },
       
   },

@@ -3,17 +3,14 @@ import { NavigateBackHeader } from "../../layouts/components/Header";
 import Section from "../../components/Section/Section";
 import FlexContainer from "../../components/Containers/FlexContainer";
 import LoveComponent from "../../components/Rate/LoveComponent";
+import Footer from "../../layouts/components/Footer";
+
 // Hooks
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 // icons
-import {
-  BsCheck2,
-  BsBag,
-  BsChatDots,
-  BsBagPlus,
-} from "react-icons/bs";
+import { BsCheck2, BsCartPlus } from "react-icons/bs";
 
 const color = ["bg-rose-400", "bg-pink-400", "bg-blue-400", "bg-yellow-400"];
 
@@ -27,15 +24,14 @@ export default function Details() {
     navigate("/");
   };
 
-
   // Function to change the product color
   const handleProductColorClick = (index) => {
     setColorIndex(index);
   };
 
   return (
-    <div className="w-full h-screen overflow-y-auto pb-12">
-      <div className="w-full h-96 bg-zinc-500 pt-4 p-1 mb-4 clip ">
+    <div className="w-full h-screen overflow-y-auto  bg-primary pb-12">
+      <div className="w-full h-96 bg-secundary pt-4 p-1 mb-4 clip ">
         <NavigateBackHeader
           color={"text-zinc-200"}
           backTo={handleBacktoClick}
@@ -52,8 +48,7 @@ export default function Details() {
         <h2 className="text-lg font-bold">10.000,00kz</h2>
 
         {/* Render icon to display whether the Product is licked or not */}
-        <LoveComponent size={'w-8 h-8'} font={'text-base'}/>
-
+        <LoveComponent size={"w-8 h-8"} font={"text-base"} />
       </div>
 
       {/* Render product different color */}
@@ -69,7 +64,6 @@ export default function Details() {
               onclick={() => handleProductColorClick(i)}
             />
           ))}
-
         </FlexContainer>
       </div>
 
@@ -85,21 +79,15 @@ export default function Details() {
         </div>
       </Section>
 
-      <div className="pr-4 pl-4 fixed bottom-4 flex justify-between items-center  w-full">
-        <div className="flex">
-          <button className="bg-zinc-100 p-1 w-14 h-10 rounded-lg text-neutral-600 mr-5 flex items-center justify-center  ">
-            <BsChatDots className="text-lg" />
-          </button>
-
-          <button className="bg-zinc-100 p-1 w-14 h-10 rounded-lg text-neutral-600 flex items-center justify-center ">
-            <BsBag className="text-lg" />
-          </button>
-        </div>
+      <div className="pr-4 pl-4 z-[10] fixed bottom-4 flex justify-end items-center  w-full">
         <button className="text-sm bg-neutral-700 text-white w-40 h-10 p-1 rounded-lg flex items-center justify-center">
-          <BsBagPlus className="mr-2 text-base" />
+          <BsCartPlus className="mr-2 text-base" />
           <span>Adicionar à sacola</span>
         </button>
       </div>
+
+      {/* Footer */}
+      {/* <Footer></Footer> */}
     </div>
   );
 }
