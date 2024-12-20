@@ -4,15 +4,20 @@ import {
   BsChevronLeft,
   BsBag,
   BsCart4,
-  BsTextLeft,
   BsPersonCircle,
 } from "react-icons/bs";
+
+// Components
+import MenuToggle from "../../components/Sidebar/MenuToggle";
 
 // Hooks
 import { useNavigate } from "react-router-dom";
 
+
 // Main Function
-export default function Header() {
+export default function Header({toggle, toggleVisibility}) {
+
+  // Router navigation
   const navigate = useNavigate();
 
   // Function to navigate to the cart page
@@ -21,11 +26,10 @@ export default function Header() {
   };
 
   return (
-    <div className="flex justify-between p-2 pl-4 pr-4 pt-4 mb-4 items-center">
-      <button className="basis-[10%] md:hidden">
-        <BsTextLeft className="text-3xl text-details  " />
-      </button>
+    <div className="flex justify-between p-2 pl-4 pr-4 pt-4 mb-4 items-center  ">
 
+      <MenuToggle toggle={toggle} toggleVisibility={toggleVisibility} />
+      
       <h2 className="text-lg font-bold text-zinc-700  flex-growtext-center ">
         Logo
       </h2>
@@ -42,6 +46,8 @@ export default function Header() {
           <BsPersonCircle className="text-zinc-700 text-xl " />
         </div>
       </div>
+
+      
     </div>
   );
 }

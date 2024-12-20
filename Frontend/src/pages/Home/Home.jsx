@@ -70,7 +70,7 @@ const Products = [
     image: "",
   },
   {
-    id: 4,
+    id: 5,
     name: "Quarta Amarração",
     price: 20000,
     color: ["red, yellow, blue, green"],
@@ -79,7 +79,7 @@ const Products = [
     image: "",
   },
   {
-    id: 5,
+    id: 6,
     name: "Primeiro Abano",
     price: 20000,
     color: ["red, yellow, blue, green"],
@@ -88,7 +88,7 @@ const Products = [
     image: "",
   },
   {
-    id: 6,
+    id: 7,
     name: "Segundo Abano",
     price: 20000,
     color: ["red, yellow, blue, green"],
@@ -97,7 +97,7 @@ const Products = [
     image: "",
   },
   {
-    id: 7,
+    id: 8,
     name: "Terceiro Abano",
     price: 20000,
     color: ["red, yellow, blue, green"],
@@ -106,7 +106,7 @@ const Products = [
     image: "",
   },
   {
-    id: 8,
+    id: 9,
     name: "Quarto Abano",
     price: 20000,
     color: ["red, yellow, blue, green"],
@@ -117,7 +117,7 @@ const Products = [
 ];
 
 // Component function
-export default function Home() {
+export default function Home({toggleVisibility, toggle}) {
   const [productsList, setProducstList] = useState(Products); // All product list
 
   // Lencos
@@ -129,10 +129,11 @@ export default function Home() {
 
   return (
     <div className="w-full h-screen overflow-y-auto relative bg-primary overflow-hidden">
-      <Header />
+      <Header toggle={toggle} toggleVisibility={toggleVisibility} />
       <SearchForm />
       <Hero />
 
+      <div onClick={toggleVisibility}>lllloo</div>
       {/* Category section */}
       <Section
         title={"Categoria"}
@@ -245,7 +246,7 @@ export default function Home() {
                 <ProductCard
                   width="w-48"
                   height="h-64"
-                  imgUrl={lenco.image}
+                  imgUrl={'/6.png'}
                   CardDesignHeight="h-44"
                   imgWidth="w-[68%]"
                   title={lenco.name}
