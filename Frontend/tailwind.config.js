@@ -10,12 +10,14 @@ export default {
         'details2': '#d7e6e6',
       },
 
-    },
-    screens: {
-      'sl': '370px',
-      'sls': '360px',
-      'slm': '400px',
-      'sc-430': '430px',
+      screens: {
+        'sl': '370px',
+        'sls': '360px',
+        'slm': '400px',
+        'sc-430': '430px',
+        'screen-500': '500px',
+        'screen-630': '630px',
+      },
     },
       
   },

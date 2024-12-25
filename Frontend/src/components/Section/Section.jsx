@@ -10,7 +10,7 @@ export default function Section({
   styleSet
 }) {
   return (
-    <section className={`pl-4 pr-4 mb-6 ${box} relative  z-10 `}>
+    <section className={`pl-4 pr-4 mb-6 ${box} relative  z-10 screen-500:w-[90%] block m-auto `}>
       <div className="flex justify-between items-center  mb-3 ">
         <h2 className="text-lg font-bold text-[#7b4c2d] "> {title} </h2>
 

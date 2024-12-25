@@ -3,7 +3,6 @@ import Header from "../../layouts/components/Header";
 import SearchForm from "../../components/searchForm/SearchForm";
 import Hero from "../../components/Hero/Hero";
 import Section from "../../components/Section/Section";
-import HorizontalScrollContainer from "../../components/ScrollContainer/HorizontalScrollContainer";
 import SmallCard from "../../components/Cards/SmallCard";
 import FlexContainer from "../../components/Containers/FlexContainer";
 import ProductCard from "../../components/Cards/ProductCard";
@@ -13,6 +12,9 @@ import GaleryGrid from "../../components/Grid/GaleryGrid";
 import Footer from "../../layouts/components/Footer";
 import BenefitShowComponent from "./components/BenefitShowComponent";
 import TestimunialCard from "../../components/Testimunial/TestimunialCard";
+import ServicesRequire from "../../components/Banner/ServicesRequire";
+import PupularProduct from "../../components/PopularProducts/PupularProduct";
+import Category from "../../components/Category/Category";
 
 // Import Home Style
 import "./Home.css";
@@ -117,26 +119,33 @@ const Products = [
 ];
 
 // Component function
-export default function Home({toggleVisibility, toggle}) {
+export default function Home({ toggleVisibility, toggle }) {
   const [productsList, setProducstList] = useState(Products); // All product list
 
   // Lencos
-  const Lencos = productsList.filter(item => item.type === "Lenco");
+  const Lencos = productsList.filter((item) => item.type === "Lenco");
 
   // Abanos
-  const Abanos = productsList.filter(item => item.type === "Abanos");
-
+  const Abanos = productsList.filter((item) => item.type === "Abanos");
 
   return (
-    <div className="w-full h-screen overflow-y-auto relative bg-primary overflow-hidden">
+    <div className="w-full block m-auto h-screen overflow-y-auto relative bg-primary overflow-hidden ">
+      {/* Header */}
       <Header toggle={toggle} toggleVisibility={toggleVisibility} />
-      <SearchForm />
-      <Hero />
 
-      <div onClick={toggleVisibility}>lllloo</div>
+      {/*  */}
+      <div className=" screen-500:w-[90%] block m-auto pr-4 pl-4 md:flex  md:h-[19rem]">
+        <div className="md:w-[20rem] mr-3 ">
+          <SearchForm />
+          <Category />
+        </div>
+        <Hero />
+      </div>
+
       {/* Category section */}
       <Section
-        title={"Categoria"}
+      box={"md:hidden"}
+        title={"Categorias"}
         iconVisibility="hidden"
         styleBackground="bg-secundary/80"
         styleSet={"w-40 h-40  top-0 -right-10"}
@@ -145,10 +154,14 @@ export default function Home({toggleVisibility, toggle}) {
           modules={[Autoplay]}
           slidesPerView={4}
           spaceBetween={2}
+          centeredSlides={true}
           loop={true}
           speed={800}
           autoplay={{
             delay: 3000,
+          }}
+          breakpoints={{
+            630: { slidesPerView: 5 },
           }}
         >
           <SwiperSlide>
@@ -166,52 +179,42 @@ export default function Home({toggleVisibility, toggle}) {
           <SwiperSlide>
             <SmallCard title={"categoria"} imgUrl="4.jpg" />
           </SwiperSlide>
+          <SwiperSlide>
+            <SmallCard title={"categoria"} imgUrl="4.jpg" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <SmallCard title={"categoria"} imgUrl="4.jpg" />
+          </SwiperSlide>
         </Swiper>
       </Section>
 
       {/* Popular product */}
       <Section
-        title={"Popularres"}
+        title={"Populares"}
         allOption={"Ver todos"}
-        styleSet="w-[20rem] h-[20rem] top-32 -left-[10rem]"
+        styleSet="w-[20rem] h-[20rem] top-28 -left-[10rem]"
         styleBackground="bg-details2"
       >
         <FlexContainer flexMode={"justify-between flex-wrap"}>
-          <ProductCard
-            title={"Product name"}
-            price={"10.000,00kz"}
-            imgUrl="7.png"
-            width=" w-[8.5rem] sl:w-40 sls:w-[9.7rem] slm:w-44"
-            height="h-56 sl:h-60"
-            CardDesignHeight="h-36 sl:h-40"
-            imgWidth="w-[80%]"
-          />
-          <ProductCard
+          <PupularProduct
             title={"Product name"}
             price={"10.000,00kz"}
             imgUrl="6.png"
-            width=" w-[8.5rem] sl:w-40 sls:w-[9.7rem] slm:w-44"
-            height="h-56 sl:h-60"
-            CardDesignHeight="h-36 sl:h-40"
-            imgWidth="w-[80%]"
           />
-          <ProductCard
+          <PupularProduct
             title={"Product name"}
             price={"10.000,00kz"}
             imgUrl="7.png"
-            width=" w-[8.5rem] sl:w-40 sls:w-[9.7rem] slm:w-44"
-            height="h-56 sl:h-60"
-            CardDesignHeight="h-36 sl:h-40"
-            imgWidth="w-[80%]"
           />
-          <ProductCard
+          <PupularProduct
             title={"Product name"}
             price={"10.000,00kz"}
             imgUrl="6.png"
-            width=" w-[8.5rem] sl:w-40 sls:w-[9.7rem] slm:w-44"
-            height="h-56 sl:h-60"
-            CardDesignHeight="h-36 sl:h-40"
-            imgWidth="w-[80%]"
+          />
+          <PupularProduct
+            title={"Product name"}
+            price={"10.000,00kz"}
+            imgUrl="6.png"
           />
         </FlexContainer>
       </Section>
@@ -238,15 +241,18 @@ export default function Home({toggleVisibility, toggle}) {
             414: { spaceBetween: 50 },
             412: { spaceBetween: 40 },
             430: { spaceBetween: 30, slidesPerView: 2, centeredSlides: true },
+            530: { spaceBetween: 160, slidesPerView: 3, centeredSlides: true },
+            700: { spaceBetween: 60, slidesPerView: 3, centeredSlides: true },
+            830: { spaceBetween: 5, slidesPerView: 3, centeredSlides: true },
           }}
         >
-          { Lencos.map(lenco => (
+          {Lencos.map((lenco) => (
             <SwiperSlide key={lenco.id}>
               <div className="sc-430:flex justify-center items-center">
                 <ProductCard
                   width="w-48"
                   height="h-64"
-                  imgUrl={'/6.png'}
+                  imgUrl={"/6.png"}
                   CardDesignHeight="h-44"
                   imgWidth="w-[68%]"
                   title={lenco.name}
@@ -281,6 +287,9 @@ export default function Home({toggleVisibility, toggle}) {
             414: { spaceBetween: 50 },
             412: { spaceBetween: 40 },
             430: { spaceBetween: 30, slidesPerView: 2, centeredSlides: true },
+            530: { spaceBetween: 160, slidesPerView: 3, centeredSlides: true },
+            700: { spaceBetween: 60, slidesPerView: 3, centeredSlides: true },
+            830: { spaceBetween: 5, slidesPerView: 3, centeredSlides: true },
           }}
         >
           <SwiperSlide>
@@ -368,6 +377,9 @@ export default function Home({toggleVisibility, toggle}) {
           centeredSlides={true}
           breakpoints={{
             430: { slidesPerView: 2, spaceBetween: 30 },
+            530: { spaceBetween: 6, slidesPerView: 2 },
+            630: { spaceBetween: 80, slidesPerView: 3 },
+            830: { spaceBetween: 20, slidesPerView: 3 },
           }}
         >
           <SwiperSlide>
@@ -449,8 +461,9 @@ export default function Home({toggleVisibility, toggle}) {
             disableOnInteraction: true,
           }}
           breakpoints={{
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 4 },
+            630: { slidesPerView: 2, spaceBetween: -80, centeredSlides: true },
+            730: { slidesPerView: 3, spaceBetween: 80, centeredSlides: true },
+            830: { slidesPerView: 3, spaceBetween: 40, centeredSlides: true },
           }}
         >
           <SwiperSlide>
@@ -459,6 +472,28 @@ export default function Home({toggleVisibility, toggle}) {
                 name="John Deo"
                 funct="Customer"
                 imgUrls="2.jpg"
+                desc=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, ab ea! Doloremque ab quibusdam beatae amet?"
+              />
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <div className="flex items-center justify-center">
+              <TestimunialCard
+                name="John Deo"
+                funct="Customer"
+                imgUrls="4.jpg"
+                desc=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, ab ea! Doloremque ab quibusdam beatae amet?"
+              />
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <div className="flex items-center justify-center">
+              <TestimunialCard
+                name="John Deo"
+                funct="Customer"
+                imgUrls="4.jpg"
                 desc=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, ab ea! Doloremque ab quibusdam beatae amet?"
               />
             </div>
@@ -483,6 +518,8 @@ export default function Home({toggleVisibility, toggle}) {
         size={"w-14 h-14"}
         font={"text-2xl"}
       />
+
+      <ServicesRequire />
 
       <Footer></Footer>
     </div>

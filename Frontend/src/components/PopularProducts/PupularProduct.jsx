@@ -1,22 +1,17 @@
+// Components
+import LoveComponent from "../Rate/LoveComponent";
+
 // icons
 import { BsHeart, BsHeartFill } from "react-icons/bs";
 
-import "./Product.css";
-
-// Components
-import LoveComponent from "../Rate/LoveComponent";
 
 // Router
 import { useNavigate } from "react-router-dom";
 
-export default function ProductCard({
+export default function PupularProduct({
   title,
   imgUrl,
-  width,
-  height,
   margin,
-  CardDesignHeight,
-  imgWidth,
   price,
   oldPrice,
 }) {
@@ -25,21 +20,21 @@ export default function ProductCard({
   return (
     <div
       onClick={() => navigate("/produtos/detalhes")}
-      className={`ProductCard bg-white shrink-0 rounded-xl mb-7 shadow-xl shadow-zinc-600/30 cursor-pointer ${width} ${height} ${margin}`}
+      className={`ProductCard bg-white shrink-0 rounded-xl mb-3 shadow-xl shadow-zinc-600/30  cursor-pointer ${margin} flex items-center  w-full h-20 screen-630:w-[48%] `}
     >
       {/* Product picture */}
       <div
-        className={`ProdCardShap w-full  rounded-xl bg-secundary clipInverse flex justify-center items-center p-2 ${CardDesignHeight}`}
+        className={`ProdCardShap w-20 h-full  rounded-l-xl bg-secundary flex justify-center items-center p-2 mr-3 `}
       >
         <img
           src={imgUrl}
           alt={`Imagem do produto: ${title}`}
-          className={` mt-4 ${imgWidth} `}
+          className={`  w-[80%] h-full object-cover`}
         />
       </div>
 
       {/* TITLE */}
-      <div className="pl-2 pr-2 mt-2">
+      <div className="pl-2 pr-2 ">
         <h3 className="text-base text-zinc-800 font-bold cursor-default">
           {title}
         </h3>

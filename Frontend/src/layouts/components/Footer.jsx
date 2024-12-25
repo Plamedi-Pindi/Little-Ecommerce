@@ -5,10 +5,10 @@ export default function Footer() {
   const year = date.getFullYear();
 
   return (
-    <div className="w-full h-80 bg-details/30 rounded-t-[2rem] mt-40 relative pt-8">
+    <div className="w-full h-80 bg-details/30 rounded-t-[2rem] mt-4 relative pt-8">
 
       {/* Footer Body */}
-      <div className="text-sm text-zinc-700 pr-4 pl-4 pt-3 border-t flex justify-between ">
+      <div className="text-sm text-zinc-700 pr-4 pl-4 pt-3 border-t flex justify-between screen-500:w-[90%] block m-auto ">
         <div className=" ">
           <h2 className="font-bold text-details">Contatos</h2>
 

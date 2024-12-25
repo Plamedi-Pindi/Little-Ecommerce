@@ -25,7 +25,7 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Layout toggle={toggle} />}>
+          <Route path="/" element={<Layout toggle={toggle} setToggle={setToggle} />}>
             <Route index element={<Home toggle={toggle} toggleVisibility={toggleVisibility} />} />
             <Route path="/produtos/detalhes" element={<Details />} />
             <Route path="/cart" element={<Cart />} />
