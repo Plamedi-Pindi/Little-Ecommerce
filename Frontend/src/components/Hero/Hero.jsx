@@ -1,7 +1,7 @@
 export default function Hero() {
   return (
-    <div className="w-full mb-6 ">
-      <div className="w-full h-40 screen-500:h-48 flex flex-col justify-center bg-gradient-to-r from-[#012a4a] to-[#61a5c2]  rounded-xl text-white relative">
+    <div className="w-full mb-6 select-none ">
+      <div className="w-full h-40 screen-830:h-[19rem] screen-500:h-48 flex flex-col justify-center bg-gradient-to-r from-[#012a4a] to-[#61a5c2]  rounded-xl text-white relative">
 
         <div className="bg-zinc-400/40 backdrop-blur-sm w-36 h-10  rounded-r-full text-sm relative top-3 flex items-center justify-center mb-6">
           <p> Promoção especial</p>

@@ -29,12 +29,12 @@ export default function ProductCard({
     >
       {/* Product picture */}
       <div
-        className={`ProdCardShap w-full  rounded-xl bg-secundary clipInverse flex justify-center items-center p-2 ${CardDesignHeight}`}
+        className={`ProdCardShap w-full  rounded-xl bg-secundary clipInverse flex justify-center items-center p- ${CardDesignHeight}`}
       >
         <img
           src={imgUrl}
           alt={`Imagem do produto: ${title}`}
-          className={` mt-4 ${imgWidth} `}
+          className={` mt- ${imgWidth} h-full rounded-t-xl object-cover `}
         />
       </div>
 

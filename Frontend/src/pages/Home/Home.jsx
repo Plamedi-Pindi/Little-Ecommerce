@@ -31,102 +31,24 @@ import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 // Hooks
-import { useState } from "react";
-
-// Product Model Example
-const Products = [
-  {
-    id: 1,
-    name: "Primeira Amarração",
-    price: 20000,
-    color: ["red, yellow, blue, green"],
-    isLoved: false,
-    type: "lenco",
-    image: "/6.png",
-  },
-  {
-    id: 2,
-    name: "Segunda Amarração",
-    price: 20000,
-    color: ["red, yellow, blue, green"],
-    isLoved: false,
-    type: "Lenco",
-    image: "",
-  },
-  {
-    id: 3,
-    name: "Terceira Amarração",
-    price: 20000,
-    color: ["red, yellow, blue, green"],
-    isLoved: false,
-    type: "Lenco",
-    image: "",
-  },
-  {
-    id: 4,
-    name: "Quarta Amarração",
-    price: 20000,
-    color: ["red, yellow, blue, green"],
-    isLoved: false,
-    type: "Lenco",
-    image: "",
-  },
-  {
-    id: 5,
-    name: "Quarta Amarração",
-    price: 20000,
-    color: ["red, yellow, blue, green"],
-    isLoved: false,
-    type: "Lenco",
-    image: "",
-  },
-  {
-    id: 6,
-    name: "Primeiro Abano",
-    price: 20000,
-    color: ["red, yellow, blue, green"],
-    isLoved: false,
-    type: "Abano",
-    image: "",
-  },
-  {
-    id: 7,
-    name: "Segundo Abano",
-    price: 20000,
-    color: ["red, yellow, blue, green"],
-    isLoved: false,
-    type: "Abano",
-    image: "",
-  },
-  {
-    id: 8,
-    name: "Terceiro Abano",
-    price: 20000,
-    color: ["red, yellow, blue, green"],
-    isLoved: false,
-    type: "Abano",
-    image: "",
-  },
-  {
-    id: 9,
-    name: "Quarto Abano",
-    price: 20000,
-    color: ["red, yellow, blue, green"],
-    isLoved: false,
-    type: "Abano",
-    image: "",
-  },
-];
+import { useState, useEffect } from "react";
 
 // Component function
 export default function Home({ toggleVisibility, toggle }) {
-  const [productsList, setProducstList] = useState(Products); // All product list
+  const [productsList, setProducstList] = useState([]); // All product list
+
+  // Getting Products from API ==========================
+  useEffect(() => {
+    fetch("http://localhost:5173/public/data/produtos.json")
+      .then((response) => response.json())
+      .then(setProducstList);
+  }, []);
 
   // Lencos
   const Lencos = productsList.filter((item) => item.type === "Lenco");
 
   // Abanos
-  const Abanos = productsList.filter((item) => item.type === "Abanos");
+  const Abanos = productsList.filter((item) => item.type === "Abano");
 
   return (
     <div className="w-full block m-auto h-screen overflow-y-auto relative bg-primary overflow-hidden ">
@@ -134,7 +56,7 @@ export default function Home({ toggleVisibility, toggle }) {
       <Header toggle={toggle} toggleVisibility={toggleVisibility} />
 
       {/*  */}
-      <div className=" screen-500:w-[90%] block m-auto pr-4 pl-4 md:flex  md:h-[19rem]">
+      <div className=" screen-500:w-[90%] screen-1020:w-[85%]  block m-auto pr-4 pl-4 md:mb-6 md:flex  md:h-[19rem]">
         <div className="md:w-[20rem] mr-3 ">
           <SearchForm />
           <Category />
@@ -144,7 +66,7 @@ export default function Home({ toggleVisibility, toggle }) {
 
       {/* Category section */}
       <Section
-      box={"md:hidden"}
+        box={"md:hidden"}
         title={"Categorias"}
         iconVisibility="hidden"
         styleBackground="bg-secundary/80"
@@ -188,179 +110,224 @@ export default function Home({ toggleVisibility, toggle }) {
         </Swiper>
       </Section>
 
-      {/* Popular product */}
-      <Section
-        title={"Populares"}
-        allOption={"Ver todos"}
-        styleSet="w-[20rem] h-[20rem] top-28 -left-[10rem]"
-        styleBackground="bg-details2"
-      >
-        <FlexContainer flexMode={"justify-between flex-wrap"}>
-          <PupularProduct
-            title={"Product name"}
-            price={"10.000,00kz"}
-            imgUrl="6.png"
-          />
-          <PupularProduct
-            title={"Product name"}
-            price={"10.000,00kz"}
-            imgUrl="7.png"
-          />
-          <PupularProduct
-            title={"Product name"}
-            price={"10.000,00kz"}
-            imgUrl="6.png"
-          />
-          <PupularProduct
-            title={"Product name"}
-            price={"10.000,00kz"}
-            imgUrl="6.png"
-          />
-        </FlexContainer>
-      </Section>
-
-      {/* LENÇOS */}
-      <Section
-        title="Lenços"
-        allOption="Ver todos"
-        styleSet="w-28 h-28 bottom-0 right-10"
-        styleBackground="bg-details2"
-      >
-        <Swiper
-          modules={[Autoplay]}
-          slidesPerView={2}
-          spaceBetween={130}
-          loop={true}
-          speed={800}
-          autoplay={{
-            delay: 3000,
-            pauseOnMouseEnter: false,
-          }}
-          breakpoints={{
-            375: { spaceBetween: 90 },
-            414: { spaceBetween: 50 },
-            412: { spaceBetween: 40 },
-            430: { spaceBetween: 30, slidesPerView: 2, centeredSlides: true },
-            530: { spaceBetween: 160, slidesPerView: 3, centeredSlides: true },
-            700: { spaceBetween: 60, slidesPerView: 3, centeredSlides: true },
-            830: { spaceBetween: 5, slidesPerView: 3, centeredSlides: true },
-          }}
-        >
-          {Lencos.map((lenco) => (
-            <SwiperSlide key={lenco.id}>
-              <div className="sc-430:flex justify-center items-center">
-                <ProductCard
-                  width="w-48"
-                  height="h-64"
-                  imgUrl={"/6.png"}
-                  CardDesignHeight="h-44"
-                  imgWidth="w-[68%]"
-                  title={lenco.name}
-                  price={lenco.price}
-                  oldPrice={"15.000,00kz"}
-                />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </Section>
-
-      {/* ABANOS */}
-      <Section
-        title="Abanos"
-        allOption="Ver todos"
-        styleSet="w-28 h-28 bottom-0 left-10"
-        styleBackground="bg-details2"
-      >
-        <Swiper
-          modules={[Autoplay]}
-          slidesPerView={2}
-          spaceBetween={130}
-          loop={true}
-          speed={800}
-          autoplay={{
-            delay: 3000,
-            pauseOnMouseEnter: false,
-          }}
-          breakpoints={{
-            375: { spaceBetween: 90 },
-            414: { spaceBetween: 50 },
-            412: { spaceBetween: 40 },
-            430: { spaceBetween: 30, slidesPerView: 2, centeredSlides: true },
-            530: { spaceBetween: 160, slidesPerView: 3, centeredSlides: true },
-            700: { spaceBetween: 60, slidesPerView: 3, centeredSlides: true },
-            830: { spaceBetween: 5, slidesPerView: 3, centeredSlides: true },
-          }}
-        >
-          <SwiperSlide>
-            <div className="sc-430:flex justify-center items-center">
-              <ProductCard
-                width="w-48"
-                height="h-64"
+      <div className="screen-930:flex gap-2 justify-between screen-930:w-[90%] screen-1020:w-[85%]  block m-auto ">
+        <div className=" screen-930:w-[100%] w-full ">
+          {/* Popular product */}
+          <Section
+            box={"screen-1020:mt-10"}
+            width={"screen-500:w-[90%] screen-930:w-auto"}
+            title={"Populares"}
+            allOption={"Ver todos"}
+            styleSet="w-[20rem] h-[20rem] top-28 -left-[10rem]"
+            styleBackground="bg-details2"
+          >
+            <FlexContainer flexMode={"justify-between flex-wrap"}>
+              <PupularProduct
+                title={"Product name"}
+                price={"10.000,00kz"}
                 imgUrl="6.png"
-                CardDesignHeight="h-44"
-                imgWidth="w-[68%]"
-                title="Product Name"
-                price={"10.000,00kz"}
-                oldPrice={"15.000,00kz"}
               />
-            </div>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <div className="sc-430:flex justify-center items-center">
-              <ProductCard
-                width="w-48"
-                height="h-64"
+              <PupularProduct
+                title={"Product name"}
+                price={"10.000,00kz"}
                 imgUrl="7.png"
-                CardDesignHeight="h-44 "
-                imgWidth="w-[68%]"
-                title="Product Name"
-                price={"10.000,00kz"}
-                oldPrice={"15.000,00kz"}
               />
-            </div>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <div className="sc-430:flex justify-center items-center">
-              <ProductCard
-                width="w-48"
-                height="h-64"
-                imgUrl="7.png"
-                CardDesignHeight="h-44 "
-                imgWidth="w-[68%]"
-                title="Product Name"
+              <PupularProduct
+                title={"Product name"}
                 price={"10.000,00kz"}
-                oldPrice={"15.000,00kz"}
-              />
-            </div>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <div className="sc-430:flex justify-center items-center">
-              <ProductCard
-                width="w-48"
-                height="h-64"
                 imgUrl="6.png"
-                CardDesignHeight="h-44"
-                imgWidth="w-[68%]"
-                title="Product Name"
-                price={"10.000,00kz"}
-                oldPrice={"15.000,00kz"}
               />
-            </div>
-          </SwiperSlide>
-        </Swiper>
-      </Section>
+              <PupularProduct
+                title={"Product name"}
+                price={"10.000,00kz"}
+                imgUrl="6.png"
+              />
+              <PupularProduct
+                title={"Product name"}
+                price={"10.000,00kz"}
+                imgUrl="6.png"
+              />
+              <PupularProduct
+                title={"Product name"}
+                price={"10.000,00kz"}
+                imgUrl="6.png"
+              />
+            </FlexContainer>
+          </Section>
+
+          {/* LENÇOS */}
+          <Section
+            box={"screen-1020:mt-10"}
+            width={"screen-500:w-[90%] screen-930:w-auto"}
+            title="Lenços"
+            allOption="Ver todos"
+            styleSet="w-28 h-28 bottom-0 right-10 screen-730:-right-36 screen-730:w-[15rem] screen-730:h-[15rem] "
+            styleBackground="bg-details2"
+          >
+            <Swiper
+              modules={[Autoplay, Navigation]}
+              className="paginacao"
+              slidesPerView={2}
+              spaceBetween={130}
+              loop={true}
+              speed={800}
+              navigation
+              autoplay={{
+                delay: 3000,
+                pauseOnMouseEnter: false,
+              }}
+              breakpoints={{
+                375: { spaceBetween: 90 },
+                414: { spaceBetween: 50 },
+                412: { spaceBetween: 40 },
+                430: {
+                  spaceBetween: 30,
+                  slidesPerView: 2,
+                  centeredSlides: true,
+                },
+                530: {
+                  spaceBetween: 160,
+                  slidesPerView: 3,
+                  centeredSlides: true,
+                },
+                700: {
+                  spaceBetween: 60,
+                  slidesPerView: 3,
+                  centeredSlides: true,
+                },
+                830: {
+                  spaceBetween: 5,
+                  slidesPerView: 3,
+                  centeredSlides: true,
+                },
+                930: {
+                  spaceBetween: 60,
+                  slidesPerView: 4,
+                  centeredSlides: true,
+                },
+                1200: {
+                  spaceBetween: 50,
+                  slidesPerView: 5,
+                  centeredSlides: true,
+                },
+              }}
+            >
+              {Lencos.map((lenco) => (
+                <SwiperSlide key={lenco.id}>
+                  <div className="sc-430:flex justify-center items-center">
+                    <ProductCard
+                      width="w-48"
+                      height="h-64"
+                      imgUrl={"/6.png"}
+                      CardDesignHeight="h-44"
+                      imgWidth="w-[68%]"
+                      title={lenco.name}
+                      price={lenco.price}
+                      oldPrice={"15.000,00kz"}
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </Section>
+
+          {/* ABANOS */}
+          <Section
+            box={"screen-1020:mt-10"}
+            width={"screen-500:w-[90%] screen-930:w-auto"}
+            title="Abanos"
+            allOption="Ver todos"
+            styleSet="w-28 h-28 bottom-0 left-10"
+            styleBackground="bg-details2"
+          >
+            <Swiper
+              modules={[Autoplay, Navigation]}
+              className="paginacao"
+              slidesPerView={2}
+              spaceBetween={130}
+              loop={true}
+              speed={800}
+              autoplay={{
+                delay: 3000,
+                pauseOnMouseEnter: false,
+              }}
+              navigation
+              
+              breakpoints={{
+                375: { spaceBetween: 90 },
+                414: { spaceBetween: 50 },
+                412: { spaceBetween: 40 },
+                430: {
+                  spaceBetween: 30,
+                  slidesPerView: 2,
+                  centeredSlides: true,
+                },
+                530: {
+                  spaceBetween: 160,
+                  slidesPerView: 3,
+                  centeredSlides: true,
+                },
+                700: {
+                  spaceBetween: 60,
+                  slidesPerView: 3,
+                  centeredSlides: true,
+                },
+                830: {
+                  spaceBetween: 5,
+                  slidesPerView: 3,
+                  centeredSlides: true,
+                },
+                930: {
+                  spaceBetween: 60,
+                  slidesPerView: 4,
+                  centeredSlides: true,
+                },
+                1200: {
+                  spaceBetween: 50,
+                  slidesPerView: 5,
+                  centeredSlides: true,
+                },
+              }}
+            >
+              {Abanos.map((abano) => {
+                const { id, name, price, oldPrice, image } = abano;
+                const curPrice = "";
+                return (
+                  <SwiperSlide key={abano.id}>
+                    <div className="sc-430:flex justify-center items-center">
+                      <ProductCard
+                        width="w-48"
+                        height="h-64"
+                        imgUrl={image}
+                        CardDesignHeight="h-44"
+                        imgWidth="w-[100%]"
+                        title={name}
+                        price={price}
+                        oldPrice={oldPrice}
+                      />
+                    </div>
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+          </Section>
+        </div>
+
+        {/* Lateral */}
+        {/* <div className=" bg-details2 w-60 h-[56rem] hidden screen-930:block"></div> */}
+      </div>
 
       {/* Banner */}
-      <Banner />
+      <div className="flex flex-col  screen-630:flex-row  w-[80%] m-auto gap-6 screen-1020:mt-12 screen-1020:mb-12 ">
+        <Banner />
+        <Banner />
+      </div>
 
       {/*  */}
       <Section
+        width={"screen-500:w-[90%] screen-1020:w-[85%] m-auto"}
         title={"Por que solicitar nossos serviços?"}
-        box="mt-8 "
+        box="mt-8screen-1020:mt-12 "
         iconVisibility="hidden"
         styleBackground="bg-details2/80"
         styleSet={"w-40 h-40  -bottom-10 right-20"}
@@ -428,9 +395,10 @@ export default function Home({ toggleVisibility, toggle }) {
 
       {/* Galeria */}
       <Section
+        width={"screen-500:w-[90%] screen-1020:w-[85%]"}
         title={"Galeria"}
         allOption={"Ver todas"}
-        box={"mt-8"}
+        box={"mt-8 screen-1020:mt-12"}
         styleSet="w-48 h-48 -bottom-14 -left-5"
         styleBackground="bg-secundary"
       >
@@ -439,6 +407,7 @@ export default function Home({ toggleVisibility, toggle }) {
 
       {/* Testimunial */}
       <Section
+        width={"screen-500:w-[90%] screen-1020:w-[85%]"}
         title="O que os nosso clientes dizem"
         box="mt-14   h-[22rem] "
         iconVisibility="hidden"

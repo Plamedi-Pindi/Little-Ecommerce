@@ -3,7 +3,6 @@ import { BsX } from "react-icons/bs";
 
 // Hooks
 import { useRef, useEffect } from "react";
-import { div } from "motion/react-client";
 
 // Component
 import { PingAnimation } from "../PingAnimation/PingAnimation";

@@ -1,0 +1,162 @@
+[
+    {
+        "id": 1,
+        "name": "Primeira Amarração",
+        "price": 20000,
+        "oldPrice": 30000,
+        "color": ["red, yellow, blue, green"],
+        "isLoved": false,
+        "type": "lenco",
+        "image": "/6.png"
+      },
+      {
+        "id": 2,
+        "name": "Segunda Amarração",
+        "price": 20000,
+        "oldPrice": 30000,
+        "color": ["red, yellow, blue, green"],
+        "isLoved": false,
+        "type": "Lenco",
+        "image": ""
+      },
+      {
+        "id": 3,
+        "name": "Terceira Amarração",
+        "price": 20000,
+        "oldPrice": 30000,
+        "color": ["red, yellow, blue, green"],
+        "isLoved": false,
+        "type": "Lenco",
+        "image": ""
+      },
+      {
+        "id": 4,
+        "name": "Quarta Amarração",
+        "price": 20000,
+        "oldPrice": 30000,
+        "color": ["red, yellow, blue, green"],
+        "isLoved": false,
+        "type": "Lenco",
+        "image": ""
+      },
+      {
+        "id": 5,
+        "name": "Quarta Amarração",
+        "price": 20000,
+        "oldPrice": 30000,
+        "color": ["red, yellow, blue, green"],
+        "isLoved": false,
+        "type": "Lenco",
+        "image": ""
+      },
+      {
+        "id": 6,
+        "name": "Primeiro Abano",
+        "price": 20000,
+        "oldPrice": 30000,
+        "color": ["red, yellow, blue, green"],
+        "isLoved": false,
+        "type": "Abano",
+        "image": "http://localhost:5173/public/abn1.jpg"
+      },
+      {
+        "id": 7,
+        "name": "Segundo Abano",
+        "price": 20000,
+        "oldPrice": 30000,
+        "color": ["red, yellow, blue, green"],
+        "isLoved": false,
+        "type": "Abano",
+        "image": "http://localhost:5173/public/abn2.jpg"
+      },
+      {
+        "id": 8,
+        "name": "Terceiro Abano",
+        "price": 20000,
+        "oldPrice": 30000,
+        "color": ["red, yellow, blue, green"],
+        "isLoved": false,
+        "type": "Abano",
+        "image": "http://localhost:5173/public/abn3.jpg"
+      },
+      {
+        "id": 9,
+        "name": "Quarto Abano",
+        "price": 20000,
+        "oldPrice": 30000,
+        "color": ["red, yellow, blue, green"],
+        "isLoved": false,
+        "type": "Abano",
+        "image": "http://localhost:5173/public/abn4.jpg"
+      },
+      {
+        "id": 10,
+        "name": "Quinta Amarração",
+        "price": 20000,
+        "oldPrice": 30000,
+        "color": ["red, yellow, blue, green"],
+        "isLoved": false,
+        "type": "Lenco",
+        "image": ""
+      },
+      {
+        "id": 11,
+        "name": "Sexta Amarração",
+        "price": 20000,
+        "oldPrice": 30000,
+        "color": ["red, yellow, blue, green"],
+        "isLoved": false,
+        "type": "Lenco",
+        "image": ""
+      },
+      {
+        "id": 12,
+        "name": "Sétima Amarração",
+        "price": 20000,
+        "oldPrice": 30000,
+        "color": ["red, yellow, blue, green"],
+        "isLoved": false,
+        "type": "Lenco",
+        "image": ""
+      },
+      {
+        "id": 13,
+        "name": "Quinto Abano",
+        "price": 20000,
+        "oldPrice": 30000,
+        "color": ["red, yellow, blue, green"],
+        "isLoved": false,
+        "type": "Abano",
+        "image": "http://localhost:5173/public/abn5.jpg"
+      },
+      {
+        "id": 14,
+        "name": "Quinto Abano",
+        "price": 20000,
+        "oldPrice": 30000,
+        "color": ["red, yellow, blue, green"],
+        "isLoved": false,
+        "type": "Abano",
+        "image": "http://localhost:5173/public/abn6.jpg"
+      },
+      {
+        "id": 15,
+        "name": "Quinto Abano",
+        "price": 20000,
+        "oldPrice": 30000,
+        "color": ["red, yellow, blue, green"],
+        "isLoved": false,
+        "type": "Abano",
+        "image": "http://localhost:5173/public/abn7.jpg"
+      },
+      {
+        "id": 16,
+        "name": "Quinto Abano",
+        "price": 20000,
+        "oldPrice": 30000,
+        "color": ["red, yellow, blue, green"],
+        "isLoved": false,
+        "type": "Abano",
+        "image": "http://localhost:5173/public/abn8.jpg"
+      }
+]

@@ -33,11 +33,11 @@ export default function Header({ toggle, toggleVisibility }) {
   };
 
   return (
-    <div className="flex justify-between p-2 pl-4 pr-4 pt-4 mb-4 items-center relative screen-500:w-[90%] block m-auto ">
+    <div className="flex justify-between p-2 pl-4 pr-4 pt-4 mb-4 items-center relative screen-500:w-[90%] block m-auto  screen-1020:w-[85%] ">
       <MenuToggle toggle={toggle} toggleVisibility={toggleVisibility} />
 
       {/*  */}
-      <h2 className="text-lg font-bold text-zinc-700  flex-growtext-centeR  ">
+      <h2 className="text-lg font-bold text-zinc-700  flex-growtext-centeR select-none ">
         Quicadorcas
       </h2>
 

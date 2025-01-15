@@ -17,6 +17,10 @@ export default {
         'sc-430': '430px',
         'screen-500': '500px',
         'screen-630': '630px',
+        'screen-730': '730px',
+        'screen-830': '830px',
+        'screen-930': '930px',
+        'screen-1020': '1020px',
       },
     },
       
