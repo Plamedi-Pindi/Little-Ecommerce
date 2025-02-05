@@ -12,12 +12,36 @@ import { useState } from "react";
 // icons
 import { BsCheck2, BsCartPlus } from "react-icons/bs";
 
-const color = ["bg-rose-400", "bg-pink-400", "bg-blue-400", "bg-yellow-400"];
+// CSS
+import "./Details.css"
+
+// Component for Other images rendering
+const OtherImagesCard = ({ imgUrl, onClick }) => {
+  return (
+    <div onClick={onClick} className="w-14 h-14 bg-green-400 rounded-lg mb-2">
+      <img className="rounded-lg object-cover" src={imgUrl} />
+    </div>
+  );
+};
 
 // MAIN FUNCTION
 export default function Details() {
   const [colorIndex, setColorIndex] = useState(0); // State for color index
+  const [mainImage, setMainImage] = useState("/2.jpg"); // State for Main image rendering
+
+  // Function to navigate to another page
   const navigate = useNavigate();
+
+  // List of products colors
+  const color = ["bg-rose-400", "bg-pink-400", "bg-blue-400", "bg-yellow-400"];
+
+  // List of other images
+  const imagesList = ["/3.webp", "/2.jpg", "/3.webp", "/2.jpg"];
+
+  // Function to change the main image rendered
+  const handleCangeMainImage = (newImage) => {
+    setMainImage(newImage);
+  };
 
   // Function to navigate to the home page
   const handleBacktoClick = () => {
@@ -32,10 +56,39 @@ export default function Details() {
   return (
     <div className="w-full h-screen overflow-y-auto  bg-primary pb-12">
       <div className="w-full h-96 bg-secundary pt-4 p-1 mb-4 clip ">
+
+        {/* Nav */}
         <NavigateBackHeader
           color={"text-zinc-200"}
           backTo={handleBacktoClick}
         />
+
+        {/* Product Image display Start */}
+        <div className=" w-full h-80 flex flex-row justify-between pr-4 pl-4">
+          {/* Other Images */}
+          <div className="h-60 overflow-y-scroll  overflow-hidden scrollBarVisibility">
+            {imagesList.map((image, index) => {
+              return (
+                <OtherImagesCard
+                key={index}
+                  imgUrl={image}
+                  onClick={() => handleCangeMainImage(image)}
+                />
+              );
+            })}
+          </div>
+        {/* Product Image display End */}
+
+
+          {/* Main Image */}
+          <div className="w-[15rem] h-60">
+            <img
+              src={mainImage}
+              alt="Product image"
+              className="w-full h-full rounded-md"
+            />
+          </div>
+        </div>
       </div>
 
       {/* Product Name */}
@@ -68,7 +121,7 @@ export default function Details() {
       </div>
 
       {/* Render the product Description  */}
-      <Section title={"Descrição"} box={"mt-5"}>
+      <Section title={"Descrição"} box={"mt-5"} iconVisibility={'hidden'}>
         <div className="text-sm text-justify text-neutral-500">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint

@@ -106,17 +106,17 @@ export const NavigateBackHeader = ({ color, backTo }) => {
     >
       <button
         onClick={backTo}
-        className="border rounded-lg border-details w-6 h-6 flex justify-center items-center"
+        className="border rounded-lg border-zinc-700 w-6 h-6 flex justify-center items-center"
       >
-        <BsChevronLeft className="text-sm  text-details" />
+        <BsChevronLeft className="text-sm  text-zinc-700" />
       </button>
 
       <div className={`flex`}>
         <div>
-          <BsChatDots className=" text-xl mr-4 text-details" />
+          <BsChatDots className=" text-xl mr-4 text-zinc-700" />
         </div>
         <div>
-          <BsCart4 onClick={handleCartClick} className="text-xl text-details" />
+          <BsCart4 onClick={handleCartClick} className="text-xl text-zinc-700" />
         </div>
       </div>
     </div>

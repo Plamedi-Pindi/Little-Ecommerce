@@ -3,6 +3,7 @@ import { BsX } from "react-icons/bs";
 
 // Hooks
 import { useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Component
 import { PingAnimation } from "../PingAnimation/PingAnimation";
@@ -15,6 +16,9 @@ export default function Menu({ toggle, setToggle }) {
 
   // Nav list reference
   const navRef = useRef(null);
+
+  // Function to navigate to another page
+  const navigate = useNavigate();
 
   useEffect(() => {
     const nav = navRef.current;
@@ -61,7 +65,7 @@ export default function Menu({ toggle, setToggle }) {
             toggle ? "" : ""
           }`}
         >
-          <li className="mt-2 flex items-center relative">
+          <li onClick={()=> navigate("/")} className="mt-2 flex items-center relative">
             <PingAnimation position={'left-14 top-2'} /> Home
           </li>
           <li className="mt-2 flex items-center">Sobre</li>

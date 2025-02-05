@@ -14,7 +14,7 @@ import Cart from "./pages/Cart/Cart";
 import { useState } from "react";
 
 function App() {
-  const [toggle, setToggle] = useState(false);
+    const [toggle, setToggle] = useState(false); // toggle to display sidebar
 
   // OnClick Event Handeler
   const toggleVisibility = () => {
@@ -28,7 +28,7 @@ function App() {
           <Route path="/" element={<Layout toggle={toggle} setToggle={setToggle} />}>
             <Route index element={<Home toggle={toggle} toggleVisibility={toggleVisibility} />} />
             <Route path="/produtos/detalhes" element={<Details />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/cart" element={<Cart toggle={toggle} toggleVisibility={toggleVisibility} />} />
           </Route>
         </Routes>
       </Router>
