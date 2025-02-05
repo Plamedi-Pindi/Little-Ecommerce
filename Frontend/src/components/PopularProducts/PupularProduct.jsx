@@ -17,6 +17,16 @@ export default function PupularProduct({
 }) {
   const navigate = useNavigate();
 
+    // Currency Formatation Function
+    const formatCurrency = (value)=>{
+      return new Intl.NumberFormat("pt-AO", {
+        style: 'currency',
+        currency: 'AOA',
+        minimumFractionDigits: 2,
+      }).format(value);
+    }
+  
+
   return (
     <div
       onClick={() => navigate("/produtos/detalhes")}
@@ -24,26 +34,26 @@ export default function PupularProduct({
     >
       {/* Product picture */}
       <div
-        className={`ProdCardShap w-20 h-full  rounded-l-xl bg-secundary flex justify-center items-center p-2 mr-3 `}
+        className={`ProdCardShap w-20 h-full  rounded-l-xl bg-secundary flex justify-center items-center p- mr-3 `}
       >
         <img
           src={imgUrl}
           alt={`Imagem do produto: ${title}`}
-          className={`  w-[80%] h-full object-cover`}
+          className={`  w-[100%] h-full object-cover rounded-l-xl `}
         />
       </div>
 
       {/* TITLE */}
-      <div className="pl-2 pr-2 ">
+      <div className="pl-2 pr-2  w-[70%]">
         <h3 className="text-base text-zinc-800 font-bold cursor-default">
           {title}
         </h3>
 
         {/* CONTENT */}
-        <div className="flex items-center justify-between text-[#7b4c2d] ">
+        <div className="flex items-center  justify-between text-[#7b4c2d] ">
           <div className="">
-            <p className="font-medium text-sm cursor-pointer  "> {price} </p>
-            <span className="text-xs text-zinc-400 -mt-0.5 block line-through"> {oldPrice} </span>
+            <p className="font-medium text-sm cursor-pointer  "> {formatCurrency(price)} </p>
+            {/* <span className="text-xs text-zinc-400 -mt- block line-through"> {formatCurrency(oldPrice)} </span> */}
           </div>
 
           <LoveComponent size={"w-6 h-6"} font={"text-sm"} />

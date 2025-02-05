@@ -32,6 +32,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 // Hooks
 import { useState, useEffect } from "react";
+import useMediaQuery from "../../Hooks/useMediaQuery";
 
 // Component function
 export default function Home({ toggleVisibility, toggle }) {
@@ -46,9 +47,14 @@ export default function Home({ toggleVisibility, toggle }) {
 
   // Lencos
   const Lencos = productsList.filter((item) => item.type === "Lenco");
-
   // Abanos
   const Abanos = productsList.filter((item) => item.type === "Abano");
+  // Pupular products
+  const popularProducrs = productsList.filter(
+    (item) => item.classification === "Popular"
+  );
+  // MediaQuery
+  const isHighestThan730 = useMediaQuery("(max-width: 730px)");
 
   return (
     <div className="w-full block m-auto h-screen overflow-y-auto relative bg-primary overflow-hidden ">
@@ -122,36 +128,30 @@ export default function Home({ toggleVisibility, toggle }) {
             styleBackground="bg-details2"
           >
             <FlexContainer flexMode={"justify-between flex-wrap"}>
-              <PupularProduct
-                title={"Product name"}
-                price={"10.000,00kz"}
-                imgUrl="6.png"
-              />
-              <PupularProduct
-                title={"Product name"}
-                price={"10.000,00kz"}
-                imgUrl="7.png"
-              />
-              <PupularProduct
-                title={"Product name"}
-                price={"10.000,00kz"}
-                imgUrl="6.png"
-              />
-              <PupularProduct
-                title={"Product name"}
-                price={"10.000,00kz"}
-                imgUrl="6.png"
-              />
-              <PupularProduct
-                title={"Product name"}
-                price={"10.000,00kz"}
-                imgUrl="6.png"
-              />
-              <PupularProduct
-                title={"Product name"}
-                price={"10.000,00kz"}
-                imgUrl="6.png"
-              />
+              {isHighestThan730
+                ? popularProducrs.slice(0, 4).map((popular) => {
+                    return (
+                      <PupularProduct
+                        key={popular.id}
+                        title={popular.name}
+                        price={popular.price}
+                        oldPrice={popular.oldPrice}
+                        imgUrl={popular.image}
+                      />
+                    );
+                  })
+                : popularProducrs.slice(0, 6).map((popular)=> {
+                  return (
+                    <PupularProduct
+                        key={popular.id}
+                        title={popular.name}
+                        price={popular.price}
+                        oldPrice={popular.oldPrice}
+                        imgUrl={popular.image}
+                      />
+                  )
+                })
+                }
             </FlexContainer>
           </Section>
 
@@ -218,12 +218,12 @@ export default function Home({ toggleVisibility, toggle }) {
                     <ProductCard
                       width="w-48"
                       height="h-64"
-                      imgUrl={"/6.png"}
+                      imgUrl={lenco.image}
                       CardDesignHeight="h-44"
-                      imgWidth="w-[68%]"
+                      imgWidth="w-[100%]"
                       title={lenco.name}
                       price={lenco.price}
-                      oldPrice={"15.000,00kz"}
+                      oldPrice={lenco.oldPrice}
                     />
                   </div>
                 </SwiperSlide>
@@ -252,7 +252,6 @@ export default function Home({ toggleVisibility, toggle }) {
                 pauseOnMouseEnter: false,
               }}
               navigation
-              
               breakpoints={{
                 375: { spaceBetween: 90 },
                 414: { spaceBetween: 50 },

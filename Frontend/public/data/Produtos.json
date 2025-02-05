@@ -7,7 +7,8 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "lenco",
-        "image": "/6.png"
+        "image": "http://localhost:5173/public/2.jpg",
+        "classification": ""
       },
       {
         "id": 2,
@@ -17,7 +18,8 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Lenco",
-        "image": ""
+        "image": "http://localhost:5173/public/3.webp",
+        "classification": "Popular"
       },
       {
         "id": 3,
@@ -27,7 +29,8 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Lenco",
-        "image": ""
+        "image": "http://localhost:5173/public/2.jpg",
+        "classification": "Popular"
       },
       {
         "id": 4,
@@ -37,17 +40,19 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Lenco",
-        "image": ""
+        "image": "http://localhost:5173/public/3.webp",
+        "classification": "Popular"
       },
       {
         "id": 5,
         "name": "Quarta Amarração",
         "price": 20000,
         "oldPrice": 30000,
-        "color": ["red, yellow, blue, green"],
+        "color": ["red, yellow, blue, green"], 
         "isLoved": false,
         "type": "Lenco",
-        "image": ""
+        "image": "http://localhost:5173/public/3.webp",
+        "classification": ""
       },
       {
         "id": 6,
@@ -57,7 +62,8 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Abano",
-        "image": "http://localhost:5173/public/abn1.jpg"
+        "image": "http://localhost:5173/public/abn1.jpg",
+        "classification": "Popular"
       },
       {
         "id": 7,
@@ -67,7 +73,8 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Abano",
-        "image": "http://localhost:5173/public/abn2.jpg"
+        "image": "http://localhost:5173/public/abn2.jpg",
+        "classification": ""
       },
       {
         "id": 8,
@@ -77,7 +84,8 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Abano",
-        "image": "http://localhost:5173/public/abn3.jpg"
+        "image": "http://localhost:5173/public/abn3.jpg",
+        "classification": "Popular"
       },
       {
         "id": 9,
@@ -87,7 +95,8 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Abano",
-        "image": "http://localhost:5173/public/abn4.jpg"
+        "image": "http://localhost:5173/public/abn4.jpg",
+        "classification": ""
       },
       {
         "id": 10,
@@ -97,7 +106,8 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Lenco",
-        "image": ""
+        "image": "http://localhost:5173/public/3.webp",
+        "classification": "Popular"
       },
       {
         "id": 11,
@@ -107,7 +117,8 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Lenco",
-        "image": ""
+        "image": "http://localhost:5173/public/3.webp",
+        "classification": "Popular"
       },
       {
         "id": 12,
@@ -117,7 +128,8 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Lenco",
-        "image": ""
+        "image": "http://localhost:5173/public/3.webp",
+        "classification": ""
       },
       {
         "id": 13,
@@ -127,7 +139,8 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Abano",
-        "image": "http://localhost:5173/public/abn5.jpg"
+        "image": "http://localhost:5173/public/abn5.jpg",
+        "classification": "Popular"
       },
       {
         "id": 14,
@@ -137,7 +150,8 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Abano",
-        "image": "http://localhost:5173/public/abn6.jpg"
+        "image": "http://localhost:5173/public/abn6.jpg",
+        "classification": ""
       },
       {
         "id": 15,
@@ -147,7 +161,8 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Abano",
-        "image": "http://localhost:5173/public/abn7.jpg"
+        "image": "http://localhost:5173/public/abn7.jpg",
+        "classification": ""
       },
       {
         "id": 16,
@@ -157,6 +172,7 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Abano",
-        "image": "http://localhost:5173/public/abn8.jpg"
+        "image": "http://localhost:5173/public/abn8.jpg",
+        "classification": ""
       }
 ]

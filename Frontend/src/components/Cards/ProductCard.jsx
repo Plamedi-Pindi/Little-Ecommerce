@@ -22,6 +22,15 @@ export default function ProductCard({
 }) {
   const navigate = useNavigate();
 
+  // Currency Formatation Function
+  const formatCurrency = (value)=>{
+    return new Intl.NumberFormat("pt-AO", {
+      style: 'currency',
+      currency: 'AOA',
+      minimumFractionDigits: 2,
+    }).format(value);
+  }
+
   return (
     <div
       onClick={() => navigate("/produtos/detalhes")}
@@ -29,7 +38,7 @@ export default function ProductCard({
     >
       {/* Product picture */}
       <div
-        className={`ProdCardShap w-full  rounded-xl bg-secundary clipInverse flex justify-center items-center p- ${CardDesignHeight}`}
+        className={`ProdCardShap w-full overflow-hidden  rounded-xl bg-secundary clipInverse flex justify-center items-center p- ${CardDesignHeight}`}
       >
         <img
           src={imgUrl}
@@ -47,8 +56,11 @@ export default function ProductCard({
         {/* CONTENT */}
         <div className="flex items-center justify-between text-[#7b4c2d] ">
           <div className="">
-            <p className="font-medium text-sm cursor-pointer  "> {price} </p>
-            <span className="text-xs text-zinc-400 -mt-0.5 block line-through"> {oldPrice} </span>
+            <p className="font-medium text-sm cursor-pointer  "> {formatCurrency(price)} </p>
+            <span className="text-xs text-zinc-400 -mt-0.5 block line-through">
+              {" "}
+              {formatCurrency(oldPrice)}{" "}
+            </span>
           </div>
 
           <LoveComponent size={"w-6 h-6"} font={"text-sm"} />
