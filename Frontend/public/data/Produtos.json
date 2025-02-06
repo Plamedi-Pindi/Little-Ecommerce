@@ -7,7 +7,7 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "lenco",
-        "image": "http://localhost:5173/public/2.jpg",
+        "image": "https://imgur.com/LokL77i",
         "classification": ""
       },
       {
@@ -18,7 +18,7 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Lenco",
-        "image": "http://localhost:5173/public/3.webp",
+        "image": "https://i.imgur.com/n01d7aQ.jpg",
         "classification": "Popular"
       },
       {
@@ -29,7 +29,7 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Lenco",
-        "image": "http://localhost:5173/public/2.jpg",
+        "image": "https://i.imgur.com/pkjzKdF.jpg",
         "classification": "Popular"
       },
       {
@@ -40,7 +40,7 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Lenco",
-        "image": "http://localhost:5173/public/3.webp",
+        "image": "https://i.imgur.com/aYkGwXX.jpg",
         "classification": "Popular"
       },
       {
@@ -51,7 +51,7 @@
         "color": ["red, yellow, blue, green"], 
         "isLoved": false,
         "type": "Lenco",
-        "image": "http://localhost:5173/public/3.webp",
+        "image": "https://i.imgur.com/02WWAvD.jpg",
         "classification": ""
       },
       {
@@ -62,7 +62,7 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Abano",
-        "image": "http://localhost:5173/public/abn1.jpg",
+        "image": "https://i.imgur.com/cbMYsnY.jpg",
         "classification": "Popular"
       },
       {
@@ -73,7 +73,7 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Abano",
-        "image": "http://localhost:5173/public/abn2.jpg",
+        "image": "https://i.imgur.com/dpZXNJB.jpg",
         "classification": ""
       },
       {
@@ -84,7 +84,7 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Abano",
-        "image": "http://localhost:5173/public/abn3.jpg",
+        "image": "https://i.imgur.com/nt63tHX.jpg",
         "classification": "Popular"
       },
       {
@@ -95,7 +95,7 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Abano",
-        "image": "http://localhost:5173/public/abn4.jpg",
+        "image": "https://i.imgur.com/4nq3K5x.jpg",
         "classification": ""
       },
       {
@@ -106,7 +106,7 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Lenco",
-        "image": "http://localhost:5173/public/3.webp",
+        "image": "https://i.imgur.com/xOJTXX1.jpg",
         "classification": "Popular"
       },
       {
@@ -117,7 +117,7 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Lenco",
-        "image": "http://localhost:5173/public/3.webp",
+        "image": "https://i.imgur.com/MnTpKEF.jpg",
         "classification": "Popular"
       },
       {
@@ -128,7 +128,7 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Lenco",
-        "image": "http://localhost:5173/public/3.webp",
+        "image": "https://i.imgur.com/xVUkAoh.jpg",
         "classification": ""
       },
       {
@@ -139,7 +139,7 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Abano",
-        "image": "http://localhost:5173/public/abn5.jpg",
+        "image": "https://i.imgur.com/bFiUpNZ.jpg",
         "classification": "Popular"
       },
       {
@@ -150,7 +150,7 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Abano",
-        "image": "http://localhost:5173/public/abn6.jpg",
+        "image": "https://i.imgur.com/pfP32AG.jpg",
         "classification": ""
       },
       {
@@ -161,7 +161,7 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Abano",
-        "image": "http://localhost:5173/public/abn7.jpg",
+        "image": "https://i.imgur.com/1vcDWw6.jpg",
         "classification": ""
       },
       {
@@ -172,7 +172,7 @@
         "color": ["red, yellow, blue, green"],
         "isLoved": false,
         "type": "Abano",
-        "image": "http://localhost:5173/public/abn8.jpg",
+        "image": "https://i.imgur.com/nFrqOuC.jpg",
         "classification": ""
       }
 ]

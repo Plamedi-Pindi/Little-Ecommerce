@@ -6,13 +6,13 @@ export default function GaleryGrid() {
         <img
           src="2.jpg"
           className="object-cover w-full h-full rounded-lg"
-        />
+        /> 
         <div className="absolute w-full h-full bg-gradient-to-t from-black to-50% z-[1] bottom-0 rounded-lg "></div>
       </div>
 
       <div className="rounded-lg bg-zinc-300 row-span-2 relative">
         <img
-          src="3.webp"
+          src="https://i.imgur.com/aYkGwXX.jpg"
           className="object-cover w-full h-full rounded-lg"
         />
         <div className="absolute w-full h-full bg-gradient-to-t from-black to-50% z-[1] bottom-0 rounded-lg "></div>
@@ -20,7 +20,7 @@ export default function GaleryGrid() {
 
       <div className="rounded-lg bg-zinc-300 row-span-2 relative">
         <img
-          src="5.jpg"
+          src="https://i.imgur.com/pkjzKdF.jpg"
           className="object-cover w-full h-full rounded-lg"
         />
         <div className="absolute w-full h-full bg-gradient-to-t from-black to-50% z-[1] bottom-0 rounded-lg "></div>
@@ -44,7 +44,7 @@ export default function GaleryGrid() {
 
       <div className="rounded-lg bg-zinc-300 row-span-2 relative overflow-hidden">
         <img
-          src="5.jpg"
+          src="https://i.imgur.com/n01d7aQ.jpg"
           className="object-cover w-full h-full rounded-lg "
         />
         <div className="absolute w-full h-full bg-gradient-to-t from-black to-50% z-[1] bottom-0 rounded-lg "></div>

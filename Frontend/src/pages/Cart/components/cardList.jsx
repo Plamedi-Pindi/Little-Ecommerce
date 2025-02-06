@@ -1,9 +1,6 @@
 
-
-export default function cardList() {
+export default function CardList({children}) {
   return (
-    <li>
-        
-    </li>
+    <ul>{children}</ul>
   )
 }

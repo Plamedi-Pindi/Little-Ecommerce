@@ -19,7 +19,7 @@ import "./Details.css"
 const OtherImagesCard = ({ imgUrl, onClick }) => {
   return (
     <div onClick={onClick} className="w-14 h-14 bg-green-400 rounded-lg mb-2">
-      <img className="rounded-lg object-cover" src={imgUrl} />
+      <img className="rounded-lg object-cover w-full h-full" src={imgUrl} />
     </div>
   );
 };
@@ -36,12 +36,12 @@ export default function Details() {
   const color = ["bg-rose-400", "bg-pink-400", "bg-blue-400", "bg-yellow-400"];
 
   // List of other images
-  const imagesList = ["/3.webp", "/2.jpg", "/3.webp", "/2.jpg"];
+  const imagesList = ["/3.webp", "/2.jpg", "https://i.imgur.com/pkjzKdF.jpg", "https://i.imgur.com/aYkGwXX.jpg"];
 
   // Function to change the main image rendered
   const handleCangeMainImage = (newImage) => {
     setMainImage(newImage);
-  };
+  }; 
 
   // Function to navigate to the home page
   const handleBacktoClick = () => {
@@ -66,7 +66,7 @@ export default function Details() {
         {/* Product Image display Start */}
         <div className=" w-full h-80 flex flex-row justify-between pr-4 pl-4">
           {/* Other Images */}
-          <div className="h-60 overflow-y-scroll  overflow-hidden scrollBarVisibility">
+          <div className="h-56 overflow-y-scroll  overflow-hidden scrollBarVisibility">
             {imagesList.map((image, index) => {
               return (
                 <OtherImagesCard
