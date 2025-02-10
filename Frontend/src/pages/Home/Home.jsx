@@ -15,6 +15,7 @@ import TestimunialCard from "../../components/Testimunial/TestimunialCard";
 import ServicesRequire from "../../components/Banner/ServicesRequire";
 import PupularProduct from "../../components/PopularProducts/PupularProduct";
 import Category from "../../components/Category/Category";
+import Produtos from "../../../public/data/Produtos.json"
 
 // Import Home Style
 import "./Home.css";
@@ -40,9 +41,10 @@ export default function Home({ toggleVisibility, toggle }) {
 
   // Getting Products from API ==========================
   useEffect(() => {
-    fetch("/data/produtos.json")
-      .then((response) => response.json())
-      .then(setProducstList);
+    // fetch("http://localhost:5173/public/data/produtos.json")
+    //   .then((response) => response.json())
+    //   .then(setProducstList);
+    setProducstList(Produtos);
   }, []);
 
   // Lencos
