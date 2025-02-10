@@ -63,7 +63,7 @@ export default function Home({ toggleVisibility, toggle }) {
 
       {/*  */}
       <div className=" screen-500:w-[90%] screen-1020:w-[85%]  block m-auto pr-4 pl-4 md:mb-6 md:flex  md:h-[19rem]">
-        <div className="md:w-[20rem] mr-3 ">
+        <div className="md:w-[20rem] mr-3 w-full">
           <SearchForm />
           <Category />
         </div>

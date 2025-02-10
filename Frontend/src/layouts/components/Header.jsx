@@ -52,20 +52,20 @@ export default function Header({ toggle, toggleVisibility }) {
         </ul>
       </nav>
 
-      {/*  */}
+      {/* Cart  */}
       <div className="flex justify-end basis-[18%]  ">
         <div>
           <BsCart4
             onClick={handleCartClick}
-            className="text-zinc-700 text-xl mr-4"
+            className="text-zinc-700 text-2xl mr-5"
           />
         </div>
 
-        {/*  */}
+        {/* User Login */}
         <div>
           <BsPersonCircle
             onClick={displayAccountMenu}
-            className="text-zinc-700 text-xl "
+            className="text-zinc-700 text-2xl "
           />
 
           <ul
@@ -73,15 +73,15 @@ export default function Header({ toggle, toggleVisibility }) {
               myAccountDisplayed ? "pt-6 h-36" : "h-0"
             }`}
           >
-            <li className="flex items-center mb-2">
+            <li className="flex items-center mb-2 border-b pb-2">
               <BsGrid className="mr-2" />
               Minha conta
             </li>
-            <li className="flex items-center mb-2">
+            <li className="flex items-center mb-2  border-b pb-2">
               <BsGrid className="mr-2" />
               Carrinho
             </li>
-            <li className="flex items-center mb-2">
+            <li className="flex items-center mb-2   pb-2">
               <BsGrid className="mr-2" />
               Sair
             </li>

@@ -42,7 +42,6 @@ export default function Cart({ toggle, toggleVisibility }) {
               />
             );
           })}
-          {/* <CardItem price={20000} imgUrl={"/3.webp"} name={'Nome do produto'}/> */}
         </CardList>
       </section>
     </div>

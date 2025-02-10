@@ -44,11 +44,17 @@ export default function Menu({ toggle, setToggle }) {
   }, [toggle]);
 
   return (
-    <div onClick={closeMenu} className={`bg-black/10 h-screen top-0 left-0 z-[900] absolute duration-300 ${
-      toggle ? "w-full" : "w-0 "
-    } `}>
+    <>
+      <div
+        onClick={closeMenu}
+        className={`bg-black/10 h-screen top-0 left-0 z-[60] absolute duration-300 ${
+          toggle ? "w-full" : "w-0 "
+        } `}
+      ></div>
+
+      {/* Nav */}
       <nav
-        className={`h-screen  absolute top-0 left-0 z-[90] bg-secundary shadow-xl duration-700 ${
+        className={`h-screen  absolute top-0 left-0 z-[100] bg-secundary shadow-xl duration-700 ${
           toggle ? "w-[15rem] p-4" : "w-0"
         }`}
       >
@@ -61,18 +67,24 @@ export default function Menu({ toggle, setToggle }) {
         {/* Nav list */}
         <ul
           ref={navRef}
-          className={` mt- text-base overflow-hidden duration-700 h-0   ${
+          className={`  text-base overflow-hidden duration-700 h-0   ${
             toggle ? "" : ""
           }`}
         >
-          <li onClick={()=> navigate("/")} className="mt-2 flex items-center relative">
-            <PingAnimation position={'left-14 top-2'} /> Home
+          <li
+            onClick={() => navigate("/")}
+            className="mt-2 flex items-center relative border-b border-details/30 pb-2"
+          >
+            <PingAnimation position={"left-14 top-2"} /> Home
           </li>
-          <li className="mt-2 flex items-center">Sobre</li>
-          <li className="mt-2 flex items-center">Serviços</li>
+          <li className="mt-2 flex items-center border-b border-details/30 pb-2">
+            Sobre
+          </li>
+          <li className="mt-2 flex items-center border-b border-details/30 pb-2">
+            Serviços
+          </li>
         </ul>
       </nav>
-    </div>
+    </>
   );
 }
-

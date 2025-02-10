@@ -5,14 +5,26 @@ import { FormatCurrency } from "../../../utils/Currency";
 import { BsPlus, BsDash, BsTrash3, BsX } from "react-icons/bs";
 
 // Hooks
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function CardItem({ price, imgUrl, name, removeItem }) {
   const [quantity, setQuantity] = useState(1); // Quantity value
   const [productTotal, setProductTotal] = useState(price); // Total of product
+  const [islonger, setisLonger] = useState(false);
+
+  
+  useEffect(() => {
+    const numberToStg = productTotal.toString();
+    const totalLength = numberToStg.length;
+    const isLengthLonger = totalLength <= 5;
+    setisLonger(isLengthLonger)
+    
+    
+  }, [productTotal]);
+
 
   // Function to Add product quantity Start
-  const addQuantinty = (price) => {
+  const addQuantinty = (price) => { 
     setQuantity((prev) => prev + 1);
 
     setProductTotal((prev) => prev + price);
@@ -32,7 +44,7 @@ export default function CardItem({ price, imgUrl, name, removeItem }) {
   //Function to Reduce product quentity End
 
   return (
-    <li className="w-full h-auto flex justify-between items-center border-b mt-4 pb-2">
+    <li className="w-full h-auto flex justify-between items-center border-b mt-5 pb-3">
       {/* Description */}
       <div className="flex items-center">
         <img
@@ -56,13 +68,13 @@ export default function CardItem({ price, imgUrl, name, removeItem }) {
 
       <div className="flex flex-col justify-center items-end mt-5 h-full">
         {/* Total */}
-        <p className="text-xs mb-1 font-medium">
+        <p className={` mb-1 font-medium ${islonger ? 'text-sm' : 'text-xs'}`}>
           {FormatCurrency(productTotal)}
         </p>
 
         {/* Remove button */}
         <button onClick={removeItem} className="block mt-3">
-          <BsTrash3 className="text-sm text-red-400" />
+          <BsTrash3 className="text-lg text-red-400" />
         </button>
       </div>
     </li>
@@ -76,7 +88,7 @@ const AddOrReduceQuantity = ({ addQuantinty, reduceQuantity, quantity }) => {
       {/* Reduce start */}
       <button
         onClick={reduceQuantity}
-        className={`w-6 h-6 ${
+        className={`w-8 h-7 ${
           quantity > 1 ? "bg-details2" : "bg-zinc-100  "
         } border flex items-center justify-center  `}
       >
@@ -85,7 +97,7 @@ const AddOrReduceQuantity = ({ addQuantinty, reduceQuantity, quantity }) => {
       {/* Reduce end */}
 
       {/* Quantity start */}
-      <div className="text-sm border-t border-b  w-6 h-6 flex items-center justify-center">
+      <div className="text-sm border-t border-b  w-8 h-7 flex items-center justify-center">
         {quantity}
       </div>
       {/* quantity end */}
@@ -93,7 +105,7 @@ const AddOrReduceQuantity = ({ addQuantinty, reduceQuantity, quantity }) => {
       {/* Add start */}
       <button
         onClick={addQuantinty}
-        className="w-6 h-6 border border-details2 flex items-center justify-center bg-details2 "
+        className="w-8 h-7 border border-details2 flex items-center justify-center bg-details2 "
       >
         <BsPlus className="text-base" />
       </button>
