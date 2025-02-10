@@ -40,7 +40,7 @@ export default function Home({ toggleVisibility, toggle }) {
 
   // Getting Products from API ==========================
   useEffect(() => {
-    fetch("http://localhost:5173/public/data/produtos.json")
+    fetch("/data/produtos.json")
       .then((response) => response.json())
       .then(setProducstList);
   }, []);
