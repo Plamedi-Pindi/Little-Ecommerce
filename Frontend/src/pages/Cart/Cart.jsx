@@ -4,7 +4,7 @@ import CardItem from "./components/CardItem";
 import CardList from "./components/cardList";
 
 // Hooks
-import { useState } from "react";
+import { useCart } from "../../contexts/CartContext";
 
 // CardList
 const productCardList = [
@@ -15,34 +15,45 @@ const productCardList = [
 ];
 
 export default function Cart({ toggle, toggleVisibility }) {
-  const [cardList, setCardList] = useState(productCardList);
+  const {cart} = useCart();
+  const quantity = cart.length;
 
-  // Function to remove an item from the cardList
-  const removeCardItem = (item) => {
-    let newList = cardList.filter((product) => product.id != item);
-    setCardList(newList);
-  };
 
   return (
-    <div className="h-screen">
+    <div className="h-screen overflow-y-auto relative bg-primary overflow-hidden">
       {/* header */}
       <Header toggle={toggle} toggleVisibility={toggleVisibility} />
 
       <section className="pr-4 pl-4 w-full mt-5">
         <CardList>
-          {cardList.map((item, index) => {
+          {cart.map((item, index) => {
             const { id, image } = item;
             return (
               <CardItem
-                key={item.id}
+                key={id}
                 price={20000}
                 imgUrl={image}
                 name={"Nome do produto"}
-                removeItem={() => removeCardItem(item.id)}
+                id={id}
               />
             );
           })}
         </CardList>
+      </section>
+
+      <section className="pr-4 pl-4 w-[17rem] screen-350:w-[21rem] mt-5 m-auto bg-white rounded h-[12rem] pt-3 ">
+        <h2 className="text-center text-font-base font-medium mb-3">Resumo</h2>
+        <ul className=" ">
+          <li className="flex justify-between border-b border-details2/60 pb-2 mb-2">
+            <h2 className="text-sm font-bold text-zinc-700">Total</h2>
+            <p className="text-sm">230000</p>
+          </li>
+          <li className="flex justify-between border-b border-details2/60 pb-2">
+            <h2 className="text-sm font-bold text-zinc-700">Qtd. Itens</h2>
+            <p className="text-sm">{quantity}</p>
+          </li>
+        </ul>
+        <button className="w-full mt-5 h-8 block text-center text-white text-sm font-bold m-auto bg-green-600 rounded-md">Finalizar Compra</button>
       </section>
     </div>
   );

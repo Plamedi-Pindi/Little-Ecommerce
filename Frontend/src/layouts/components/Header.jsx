@@ -1,10 +1,12 @@
 // Components
 import MenuToggle from "../../components/Sidebar/MenuToggle";
 import { PingAnimation } from "../../components/PingAnimation/PingAnimation";
+import { CartIcon } from "../../components/Cart/CartIcon";
 
 // Hooks
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useCart } from "../../contexts/CartContext";
 
 //Icons
 import {
@@ -19,6 +21,8 @@ import {
 // Main Function
 export default function Header({ toggle, toggleVisibility }) {
   const [myAccountDisplayed, setMyAccountDisplayed] = useState(false);
+
+  const { cart } = useCart();
 
   const displayAccountMenu = () => {
     setMyAccountDisplayed((preView) => !preView);
@@ -45,20 +49,21 @@ export default function Header({ toggle, toggleVisibility }) {
         <ul className="flex items-center gap-8 text-sm text-zinc-700 ">
           <li className="relative hover:border-t border-details cursor-pointer select-none hover:text-details">
             Home
-            <PingAnimation position={'left-3 top-5'} />
+            <PingAnimation position={"left-3 top-5"} />
           </li>
-          <li className=" hover:border-t border-details cursor-pointer select-none hover:text-details">Sobre</li>
-          <li className=" hover:border-t border-details cursor-pointer select-none hover:text-details">Serviços</li>
+          <li className=" hover:border-t border-details cursor-pointer select-none hover:text-details">
+            Sobre
+          </li>
+          <li className=" hover:border-t border-details cursor-pointer select-none hover:text-details">
+            Serviços
+          </li>
         </ul>
       </nav>
 
-      {/* Cart  */}
       <div className="flex justify-end basis-[18%]  ">
-        <div>
-          <BsCart4
-            onClick={handleCartClick}
-            className="text-zinc-700 text-2xl mr-5"
-          />
+        {/* Cart  */}
+        <div className="mr-5">
+          <CartIcon onClick={handleCartClick} />
         </div>
 
         {/* User Login */}
@@ -116,7 +121,7 @@ export const NavigateBackHeader = ({ color, backTo }) => {
           <BsChatDots className=" text-xl mr-4 text-zinc-700" />
         </div>
         <div>
-          <BsCart4 onClick={handleCartClick} className="text-xl text-zinc-700" />
+          <CartIcon onClick={handleCartClick} />
         </div>
       </div>
     </div>

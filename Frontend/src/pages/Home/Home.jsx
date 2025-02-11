@@ -139,6 +139,7 @@ export default function Home({ toggleVisibility, toggle }) {
                         price={popular.price}
                         oldPrice={popular.oldPrice}
                         imgUrl={popular.image}
+                        id={popular.id}
                       />
                     );
                   })
@@ -150,6 +151,7 @@ export default function Home({ toggleVisibility, toggle }) {
                         price={popular.price}
                         oldPrice={popular.oldPrice}
                         imgUrl={popular.image}
+                        id={popular.id}
                       />
                   )
                 })
@@ -226,6 +228,7 @@ export default function Home({ toggleVisibility, toggle }) {
                       title={lenco.name}
                       price={lenco.price}
                       oldPrice={lenco.oldPrice}
+                      id={lenco.id}
                     />
                   </div>
                 </SwiperSlide>
@@ -305,6 +308,7 @@ export default function Home({ toggleVisibility, toggle }) {
                         title={name}
                         price={price}
                         oldPrice={oldPrice}
+                        id={abano.id}
                       />
                     </div>
                   </SwiperSlide>

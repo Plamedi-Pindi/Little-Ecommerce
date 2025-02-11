@@ -4,9 +4,8 @@ import LoveComponent from "../Rate/LoveComponent";
 // icons
 import { BsHeart, BsHeartFill } from "react-icons/bs";
 
-
 // Router
-import { useNavigate } from "react-router-dom";
+import { useNavigate,  } from "react-router-dom";
 
 export default function PupularProduct({
   title,
@@ -14,8 +13,10 @@ export default function PupularProduct({
   margin,
   price,
   oldPrice,
+  id
 }) {
   const navigate = useNavigate();
+  
 
     // Currency Formatation Function
     const formatCurrency = (value)=>{
@@ -29,7 +30,7 @@ export default function PupularProduct({
 
   return (
     <div
-      onClick={() => navigate("/produtos/detalhes")}
+      onClick={() => navigate(`/produtos/detalhes/${id}`)}
       className={`ProductCard bg-white shrink-0 rounded-xl mb-3 shadow-xl shadow-zinc-600/30  cursor-pointer ${margin} flex items-center  w-full h-20 screen-630:w-[48%] screen-830:w-[32%] `}
     >
       {/* Product picture */}

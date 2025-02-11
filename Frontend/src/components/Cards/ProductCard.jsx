@@ -19,6 +19,7 @@ export default function ProductCard({
   imgWidth,
   price,
   oldPrice,
+  id
 }) {
   const navigate = useNavigate();
 
@@ -33,7 +34,7 @@ export default function ProductCard({
 
   return (
     <div
-      onClick={() => navigate("/produtos/detalhes")}
+      onClick={() => navigate(`/produtos/detalhes/${id}`)}
       className={`ProductCard bg-white shrink-0 rounded-xl mb-7 shadow-xl shadow-zinc-600/30 cursor-pointer ${width} ${height} ${margin}`}
     >
       {/* Product picture */}

@@ -6,12 +6,15 @@ import { BsPlus, BsDash, BsTrash3, BsX } from "react-icons/bs";
 
 // Hooks
 import { useState, useEffect } from "react";
+import { useCart } from "../../../contexts/CartContext";
 
-export default function CardItem({ price, imgUrl, name, removeItem }) {
+export default function CardItem({ price, imgUrl, name, id }) {
   const [quantity, setQuantity] = useState(1); // Quantity value
   const [productTotal, setProductTotal] = useState(price); // Total of product
-  const [islonger, setisLonger] = useState(false);
+  const [totals, setTotals] = useState([]);
 
+  const [islonger, setisLonger] = useState(false);
+ const {removeFromCart} = useCart();
   
   useEffect(() => {
     const numberToStg = productTotal.toString();
@@ -22,12 +25,18 @@ export default function CardItem({ price, imgUrl, name, removeItem }) {
     
   }, [productTotal]);
 
+  useEffect(() => {
+    localStorage.setItem('Total', totals.toString());
+  }, [totals]);
+
+
 
   // Function to Add product quantity Start
   const addQuantinty = (price) => { 
     setQuantity((prev) => prev + 1);
 
     setProductTotal((prev) => prev + price);
+    setTotals((prev)=> [...prev, productTotal+price] );
   };
   // Function to Add product quantity End
 
@@ -73,7 +82,7 @@ export default function CardItem({ price, imgUrl, name, removeItem }) {
         </p>
 
         {/* Remove button */}
-        <button onClick={removeItem} className="block mt-3">
+        <button onClick={()=> removeFromCart(id)} className="block mt-3">
           <BsTrash3 className="text-lg text-red-400" />
         </button>
       </div>

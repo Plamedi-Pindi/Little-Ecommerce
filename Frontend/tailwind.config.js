@@ -15,6 +15,7 @@ export default {
         'sls': '360px',
         'slm': '400px',
         'sc-430': '430px',
+        'screen-350': '370px',
         'screen-500': '500px',
         'screen-630': '630px',
         'screen-730': '730px',
