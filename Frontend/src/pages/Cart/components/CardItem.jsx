@@ -2,55 +2,50 @@
 import { FormatCurrency } from "../../../utils/Currency";
 
 // Icons
-import { BsPlus, BsDash, BsTrash3, BsX } from "react-icons/bs";
+import { BsPlus, BsDash, BsTrash3 } from "react-icons/bs";
 
 // Hooks
 import { useState, useEffect } from "react";
 import { useCart } from "../../../contexts/CartContext";
 
 export default function CardItem({ price, imgUrl, name, id }) {
-  const [quantity, setQuantity] = useState(1); // Quantity value
-  const [productTotal, setProductTotal] = useState(price); // Total of product
-  const [totals, setTotals] = useState([]);
+  const [productTotal, setProductTotal] = useState(0); // Total of product
 
   const [islonger, setisLonger] = useState(false);
- const {removeFromCart} = useCart();
-  
+
+  /** */
+  const { cart, removeFromCart, UpdateAddQuantity, UpdateSubQuantity } =
+    useCart();
+
+  //
+  let pedido = {};
+  cart.filter((item) => item.id === id).map((item) => (pedido = item));
+
+  // Functio to count the caracters number of productTotal
   useEffect(() => {
     const numberToStg = productTotal.toString();
     const totalLength = numberToStg.length;
     const isLengthLonger = totalLength <= 5;
-    setisLonger(isLengthLonger)
-    
-    
+
+    setisLonger(isLengthLonger);
   }, [productTotal]);
 
+  //
   useEffect(() => {
-    localStorage.setItem('Total', totals.toString());
-  }, [totals]);
+    setProductTotal(price * pedido.quantity);
+   
+  }, [pedido.quantity]);
 
-
-
-  // Function to Add product quantity Start
-  const addQuantinty = (price) => { 
-    setQuantity((prev) => prev + 1);
-
-    setProductTotal((prev) => prev + price);
-    setTotals((prev)=> [...prev, productTotal+price] );
+  // Function to Add product quantity Start =================
+  const addQuantinty = (price) => {
+    // Update quantity in Local Storage
+    UpdateAddQuantity(id);
   };
-  // Function to Add product quantity End
 
-  //Function to Reduce product quentity Start
+  //Function to Reduce product quentity Start ============
   const reduceQuantity = (price) => {
-    if (quantity > 1) {
-      setQuantity((prev) => prev - 1);
-    }
-
-    if (productTotal > price) {
-      setProductTotal((prev) => prev - price);
-    }
+    UpdateSubQuantity(id);
   };
-  //Function to Reduce product quentity End
 
   return (
     <li className="w-full h-auto flex justify-between items-center border-b mt-5 pb-3">
@@ -70,19 +65,19 @@ export default function CardItem({ price, imgUrl, name, id }) {
           <AddOrReduceQuantity
             addQuantinty={() => addQuantinty(price)}
             reduceQuantity={() => reduceQuantity(price)}
-            quantity={quantity}
+            quantity={pedido.quantity}
           />
         </div>
       </div>
 
       <div className="flex flex-col justify-center items-end mt-5 h-full">
         {/* Total */}
-        <p className={` mb-1 font-medium ${islonger ? 'text-sm' : 'text-xs'}`}>
+        <p className={` mb-1 font-medium ${islonger ? "text-sm" : "text-xs"}`}>
           {FormatCurrency(productTotal)}
         </p>
 
         {/* Remove button */}
-        <button onClick={()=> removeFromCart(id)} className="block mt-3">
+        <button onClick={() => removeFromCart(id)} className="block mt-3">
           <BsTrash3 className="text-lg text-red-400" />
         </button>
       </div>

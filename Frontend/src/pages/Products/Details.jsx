@@ -4,6 +4,7 @@ import Section from "../../components/Section/Section";
 import FlexContainer from "../../components/Containers/FlexContainer";
 import LoveComponent from "../../components/Rate/LoveComponent";
 import Products from "../../../public/data/Produtos.json";
+import Header from "../../layouts/components/Header";
 
 // Utils
 import { FormatCurrency } from "../../utils/Currency";
@@ -34,16 +35,30 @@ export default function Details() {
   const [mainImage, setMainImage] = useState("/2.jpg"); // State for Main image rendering
   const [isOnCart, setIsOnCart] = useState(false);
 
+  const { addToCart } = useCart();
+
+  // Function to navigate to another page
+  const navigate = useNavigate();
+
   const { id } = useParams();
+
   let product = {};
   Products.filter((item) => item.id === parseInt(id)).map(
     (item) => (product = item)
   );
 
-  const { addToCart } = useCart();
+  const handleAddToCart = () => {
+    const newPedido = {
+      id: product.id,
+      productName: product.name,
+      image: product.image,
+      quantity: 1,
+      price: product.price,
+      type: product.type,
+    };
 
-  // Function to navigate to another page
-  const navigate = useNavigate();
+    addToCart(newPedido);
+  };
 
   // List of products colors
   const color = ["bg-rose-400", "bg-pink-400", "bg-blue-400", "bg-yellow-400"];
@@ -73,12 +88,24 @@ export default function Details() {
 
   return (
     <div className="w-full h-screen overflow-y-auto  bg-primary pb-12">
+      <Header />
+      <section className="w-full bg-details2 p-3">
+        <h1 className="text-center text-lg font-bold mb-1">Detalhes do produto</h1>
+
+        {/* Bradcramb */}
+        <ul className="flex items-center justify-center text-sm italic bradcramb">
+          <li onClick={() => navigate("/")}>Home</li>
+          <span className="ml-2 mr-2">/</span>
+          <li className="text-details">Detalhes</li>
+        </ul>
+      </section>
+
       <div className="w-full h-96 bg-secundary pt-4 p-1 mb-4 clip ">
         {/* Nav */}
-        <NavigateBackHeader
+        {/* <NavigateBackHeader
           color={"text-zinc-200"}
           backTo={handleBacktoClick}
-        />
+        /> */}
 
         {/* Product Image display Start */}
         <div className=" w-full h-80 flex flex-row justify-between pr-4 pl-4">
@@ -97,7 +124,7 @@ export default function Details() {
           {/* Product Image display End */}
 
           {/* Main Image */}
-          <div className="w-[15rem] h-60">
+          <div className=" h-60">
             <img
               src={product.image}
               alt="Product image"
@@ -150,7 +177,7 @@ export default function Details() {
 
       <div className="pr-4 pl-4 z-[10] fixed bottom-4 flex justify-end items-center  w-full">
         <button
-          onClick={() => addToCart(product)}
+          onClick={handleAddToCart}
           className="text-sm bg-neutral-700 text-white w-40 h-10 p-1 rounded-lg flex items-center justify-center"
         >
           <BsCartPlus className="mr-2 text-base" />

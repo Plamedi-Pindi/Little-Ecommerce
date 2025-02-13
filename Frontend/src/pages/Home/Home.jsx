@@ -15,7 +15,7 @@ import TestimunialCard from "../../components/Testimunial/TestimunialCard";
 import ServicesRequire from "../../components/Banner/ServicesRequire";
 import PupularProduct from "../../components/PopularProducts/PupularProduct";
 import Category from "../../components/Category/Category";
-import Produtos from "../../../public/data/Produtos.json"
+import Produtos from "../../../public/data/Produtos.json";
 
 // Import Home Style
 import "./Home.css";
@@ -143,9 +143,9 @@ export default function Home({ toggleVisibility, toggle }) {
                       />
                     );
                   })
-                : popularProducrs.slice(0, 6).map((popular)=> {
-                  return (
-                    <PupularProduct
+                : popularProducrs.slice(0, 6).map((popular) => {
+                    return (
+                      <PupularProduct
                         key={popular.id}
                         title={popular.name}
                         price={popular.price}
@@ -153,10 +153,79 @@ export default function Home({ toggleVisibility, toggle }) {
                         imgUrl={popular.image}
                         id={popular.id}
                       />
-                  )
-                })
-                }
+                    );
+                  })}
             </FlexContainer>
+          </Section>
+
+          {/*  */}
+          <Section
+            width={"screen-500:w-[90%] screen-1020:w-[85%] m-auto"}
+            title={"Por que solicitar nossos serviços?"}
+            box="mt-8screen-1020:mt-12 "
+            iconVisibility="hidden"
+            styleBackground="bg-details2/80"
+            styleSet={"w-40 h-40  -bottom-10 right-20"}
+          >
+            <Swiper
+              modules={[Autoplay]}
+              slidesPerView={1}
+              spaceBetween={2}
+              loop={true}
+              speed={800}
+              autoplay={{
+                delay: 3000,
+              }}
+              centeredSlides={true}
+              breakpoints={{
+                430: { slidesPerView: 2, spaceBetween: 30 },
+                530: { spaceBetween: 6, slidesPerView: 2 },
+                630: { spaceBetween: 80, slidesPerView: 3 },
+                830: { spaceBetween: 20, slidesPerView: 3 },
+              }}
+            >
+              <SwiperSlide>
+                <div className="flex justify-center items-center">
+                  <BenefitShowComponent
+                    title="Lenços Exclusivos e Elegantes"
+                    desc="Designs únicos e de alta qualidade, perfeitos para qualquer ocasião especial."
+                    imgUrl="icon1.png"
+                    imgDim="w-full"
+                  />
+                </div>
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <div className="flex justify-center items-center">
+                  <BenefitShowComponent
+                    title="Abanos Sofisticados"
+                    desc="Acrescente um toque de classe ao seu casamento ou evento."
+                  />
+                </div>
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <div className="flex justify-center items-center">
+                  <BenefitShowComponent
+                    imgUrl="hairdresser.png"
+                    imgDim="w-12"
+                    title="Amarração Personalizada"
+                    desc="Transformamos o lenço ideal no estilo perfeito, feito por profissionais experientes."
+                  />
+                </div>
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <div className="flex justify-center items-center">
+                  <BenefitShowComponent
+                    imgUrl="trs.png"
+                    imgDim="w-10"
+                    title="Atendimento em Domicílio"
+                    desc="Nossa equipe vai até você para realizar o serviço com conforto e praticidade."
+                  />
+                </div>
+              </SwiperSlide>
+            </Swiper>
           </Section>
 
           {/* LENÇOS */}
@@ -327,76 +396,6 @@ export default function Home({ toggleVisibility, toggle }) {
         <Banner />
         <Banner />
       </div>
-
-      {/*  */}
-      <Section
-        width={"screen-500:w-[90%] screen-1020:w-[85%] m-auto"}
-        title={"Por que solicitar nossos serviços?"}
-        box="mt-8screen-1020:mt-12 "
-        iconVisibility="hidden"
-        styleBackground="bg-details2/80"
-        styleSet={"w-40 h-40  -bottom-10 right-20"}
-      >
-        <Swiper
-          modules={[Autoplay]}
-          slidesPerView={1}
-          spaceBetween={2}
-          loop={true}
-          speed={800}
-          autoplay={{
-            delay: 3000,
-          }}
-          centeredSlides={true}
-          breakpoints={{
-            430: { slidesPerView: 2, spaceBetween: 30 },
-            530: { spaceBetween: 6, slidesPerView: 2 },
-            630: { spaceBetween: 80, slidesPerView: 3 },
-            830: { spaceBetween: 20, slidesPerView: 3 },
-          }}
-        >
-          <SwiperSlide>
-            <div className="flex justify-center items-center">
-              <BenefitShowComponent
-                title="Lenços Exclusivos e Elegantes"
-                desc="Designs únicos e de alta qualidade, perfeitos para qualquer ocasião especial."
-                imgUrl="icon1.png"
-                imgDim="w-full"
-              />
-            </div>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <div className="flex justify-center items-center">
-              <BenefitShowComponent
-                title="Abanos Sofisticados"
-                desc="Acrescente um toque de classe ao seu casamento ou evento."
-              />
-            </div>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <div className="flex justify-center items-center">
-              <BenefitShowComponent
-                imgUrl="hairdresser.png"
-                imgDim="w-12"
-                title="Amarração Personalizada"
-                desc="Transformamos o lenço ideal no estilo perfeito, feito por profissionais experientes."
-              />
-            </div>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <div className="flex justify-center items-center">
-              <BenefitShowComponent
-                imgUrl="trs.png"
-                imgDim="w-10"
-                title="Atendimento em Domicílio"
-                desc="Nossa equipe vai até você para realizar o serviço com conforto e praticidade."
-              />
-            </div>
-          </SwiperSlide>
-        </Swiper>
-      </Section>
 
       {/* Galeria */}
       <Section

@@ -40,10 +40,10 @@ export default function Footer() {
 
       <div className="w-full z-[1] absolute  bottom-0 right-0  ">
         {/* Cards */}
-        <div className="w-full h-[2rem] bg-white flex items-center justify-center pl-2 pr-2 ">
+        {/* <div className="w-full h-[2rem] bg-white flex items-center justify-center pl-2 pr-2 ">
           <img src="/paypal.png" className="h-full mr-3" />
           <img src="/multicaixa.png" className=" w-32" />
-        </div>
+        </div> */}
 
         {/* copyright  */}
         <div className="w-full h-[2.5rem] flex justify-center items-center  bg-black/60">
