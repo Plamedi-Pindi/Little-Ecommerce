@@ -55,8 +55,10 @@ export default function Home({ toggleVisibility, toggle }) {
   const popularProducrs = productsList.filter(
     (item) => item.classification === "Popular"
   );
+
   // MediaQuery
   const isHighestThan730 = useMediaQuery("(max-width: 730px)");
+  const isHighestThan930 = useMediaQuery("(min-width: 930px)");
 
   return (
     <div className="w-full block m-auto h-screen overflow-y-auto relative bg-primary overflow-hidden ">
@@ -74,6 +76,7 @@ export default function Home({ toggleVisibility, toggle }) {
 
       {/* Category section */}
       <Section
+        width={"screen-500:w-[90%] screen-1020:w-[85%] m-auto"}
         box={"md:hidden"}
         title={"Categorias"}
         iconVisibility="hidden"
@@ -118,7 +121,7 @@ export default function Home({ toggleVisibility, toggle }) {
         </Swiper>
       </Section>
 
-      <div className="screen-930:flex gap-2 justify-between screen-930:w-[90%] screen-1020:w-[85%]  block m-auto ">
+      <div className="screen-930:flex gap-2 justify-between screen-930:w-[90%] screen-1020:w-[90%]  block m-auto ">
         <div className=" screen-930:w-[100%] w-full ">
           {/* Popular product */}
           <Section
@@ -160,7 +163,7 @@ export default function Home({ toggleVisibility, toggle }) {
 
           {/*  */}
           <Section
-            width={"screen-500:w-[90%] screen-1020:w-[85%] m-auto"}
+            width={" screen-500:w-[90%] screen-930:w-auto"}
             title={"Por que solicitar nossos serviços?"}
             box="mt-8screen-1020:mt-12 "
             iconVisibility="hidden"
@@ -237,62 +240,13 @@ export default function Home({ toggleVisibility, toggle }) {
             styleSet="w-28 h-28 bottom-0 right-10 screen-730:-right-36 screen-730:w-[15rem] screen-730:h-[15rem] "
             styleBackground="bg-details2"
           >
-            <Swiper
-              modules={[Autoplay, Navigation]}
-              className="paginacao"
-              slidesPerView={2}
-              spaceBetween={130}
-              loop={true}
-              speed={800}
-              navigation
-              autoplay={{
-                delay: 3000,
-                pauseOnMouseEnter: false,
-              }}
-              breakpoints={{
-                375: { spaceBetween: 90 },
-                414: { spaceBetween: 50 },
-                412: { spaceBetween: 40 },
-                430: {
-                  spaceBetween: 30,
-                  slidesPerView: 2,
-                  centeredSlides: true,
-                },
-                530: {
-                  spaceBetween: 160,
-                  slidesPerView: 3,
-                  centeredSlides: true,
-                },
-                700: {
-                  spaceBetween: 60,
-                  slidesPerView: 3,
-                  centeredSlides: true,
-                },
-                830: {
-                  spaceBetween: 5,
-                  slidesPerView: 3,
-                  centeredSlides: true,
-                },
-                930: {
-                  spaceBetween: 60,
-                  slidesPerView: 4,
-                  centeredSlides: true,
-                },
-                1200: {
-                  spaceBetween: 50,
-                  slidesPerView: 5,
-                  centeredSlides: true,
-                },
-              }}
-            >
-              {Lencos.map((lenco) => (
-                <SwiperSlide key={lenco.id}>
-                  <div className="sc-430:flex justify-center items-center">
+            {isHighestThan930 ? (
+              <div className="flex flex-wrap items-center  justify-center  overflow-hidden ">
+                {Lencos.slice(0, 6).map((lenco) => (
+                  <div className="">
                     <ProductCard
-                      width="w-48"
-                      height="h-64"
+                      key={lenco.id}
                       imgUrl={lenco.image}
-                      CardDesignHeight="h-44"
                       imgWidth="w-[100%]"
                       title={lenco.name}
                       price={lenco.price}
@@ -300,9 +254,68 @@ export default function Home({ toggleVisibility, toggle }) {
                       id={lenco.id}
                     />
                   </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+                ))}
+              </div>
+            ) : (
+              <Swiper
+                modules={[Autoplay, Navigation]}
+                className="paginacao"
+                slidesPerView={2}
+                spaceBetween={130}
+                loop={true}
+                speed={800}
+                navigation
+                autoplay={{
+                  delay: 3000,
+                  pauseOnMouseEnter: false,
+                }}
+                breakpoints={{
+                  375: { spaceBetween: 90 },
+                  414: { spaceBetween: 50 },
+                  412: { spaceBetween: 40 },
+                  430: {
+                    spaceBetween: 30,
+                    slidesPerView: 2,
+                    centeredSlides: true,
+                  },
+                  530: {
+                    spaceBetween: 160,
+                    slidesPerView: 3,
+                    centeredSlides: true,
+                  },
+                  700: {
+                    spaceBetween: 60,
+                    slidesPerView: 3,
+                    centeredSlides: true,
+                  },
+                  830: {
+                    spaceBetween: 5,
+                    slidesPerView: 3,
+                    centeredSlides: true,
+                  },
+                  930: {
+                    spaceBetween: 6,
+                    slidesPerView: 3,
+                    centeredSlides: true,
+                  },
+                }}
+              >
+                {Lencos.map((lenco) => (
+                  <SwiperSlide key={lenco.id}>
+                    <div className="sc-430:flex justify-center items-center flex-wrap">
+                      <ProductCard
+                        imgUrl={lenco.image}
+                        imgWidth="w-[100%]"
+                        title={lenco.name}
+                        price={lenco.price}
+                        oldPrice={lenco.oldPrice}
+                        id={lenco.id}
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            )}
           </Section>
 
           {/* ABANOS */}
@@ -314,76 +327,88 @@ export default function Home({ toggleVisibility, toggle }) {
             styleSet="w-28 h-28 bottom-0 left-10"
             styleBackground="bg-details2"
           >
-            <Swiper
-              modules={[Autoplay, Navigation]}
-              className="paginacao"
-              slidesPerView={2}
-              spaceBetween={130}
-              loop={true}
-              speed={800}
-              autoplay={{
-                delay: 3000,
-                pauseOnMouseEnter: false,
-              }}
-              navigation
-              breakpoints={{
-                375: { spaceBetween: 90 },
-                414: { spaceBetween: 50 },
-                412: { spaceBetween: 40 },
-                430: {
-                  spaceBetween: 30,
-                  slidesPerView: 2,
-                  centeredSlides: true,
-                },
-                530: {
-                  spaceBetween: 160,
-                  slidesPerView: 3,
-                  centeredSlides: true,
-                },
-                700: {
-                  spaceBetween: 60,
-                  slidesPerView: 3,
-                  centeredSlides: true,
-                },
-                830: {
-                  spaceBetween: 5,
-                  slidesPerView: 3,
-                  centeredSlides: true,
-                },
-                930: {
-                  spaceBetween: 60,
-                  slidesPerView: 4,
-                  centeredSlides: true,
-                },
-                1200: {
-                  spaceBetween: 50,
-                  slidesPerView: 5,
-                  centeredSlides: true,
-                },
-              }}
-            >
-              {Abanos.map((abano) => {
-                const { id, name, price, oldPrice, image } = abano;
-                const curPrice = "";
-                return (
-                  <SwiperSlide key={abano.id}>
+            {isHighestThan930 ? (
+              <div className="flex flex-wrap items-center  justify-center  overflow-hidden">
+                {Abanos.slice(0, 6).map((abano) => {
+                  const { id, name, price, oldPrice, image } = abano;
+                  return (
                     <div className="sc-430:flex justify-center items-center">
                       <ProductCard
-                        width="w-48"
-                        height="h-64"
+                        key={id}
                         imgUrl={image}
-                        CardDesignHeight="h-44"
                         imgWidth="w-[100%]"
                         title={name}
                         price={price}
                         oldPrice={oldPrice}
-                        id={abano.id}
+                        id={id}
                       />
                     </div>
-                  </SwiperSlide>
-                );
-              })}
-            </Swiper>
+                  );
+                })}
+              </div>
+            ) : (
+              <Swiper
+                modules={[Autoplay, Navigation]}
+                className="paginacao"
+                slidesPerView={2}
+                spaceBetween={130}
+                loop={true}
+                speed={800}
+                autoplay={{
+                  delay: 3000,
+                  pauseOnMouseEnter: false,
+                }}
+                navigation
+                breakpoints={{
+                  375: { spaceBetween: 90 },
+                  414: { spaceBetween: 50 },
+                  412: { spaceBetween: 40 },
+                  430: {
+                    spaceBetween: 30,
+                    slidesPerView: 2,
+                    centeredSlides: true,
+                  },
+                  530: {
+                    spaceBetween: 160,
+                    slidesPerView: 3,
+                    centeredSlides: true,
+                  },
+                  700: {
+                    spaceBetween: 60,
+                    slidesPerView: 3,
+                    centeredSlides: true,
+                  },
+                  830: {
+                    spaceBetween: 5,
+                    slidesPerView: 3,
+                    centeredSlides: true,
+                  },
+                  930: {
+                    spaceBetween: 6,
+                    slidesPerView: 3,
+                    centeredSlides: true,
+                  },
+                }}
+              >
+                {Abanos.map((abano) => {
+                  const { id, name, price, oldPrice, image } = abano;
+                  return (
+                    <SwiperSlide key={abano.id}>
+                      <div className="sc-430:flex justify-center items-center">
+                        <ProductCard
+                          imgUrl={image}
+                          imgWidth="w-[100%]"
+                          title={name}
+                          price={price}
+                          oldPrice={oldPrice}
+                          id={abano.id}
+                        />
+                      </div>
+                    </SwiperSlide>
+                  );
+                })}
+              </Swiper>
+            )}
           </Section>
         </div>
 
@@ -392,22 +417,56 @@ export default function Home({ toggleVisibility, toggle }) {
       </div>
 
       {/* Banner */}
-      <div className="flex flex-col  screen-630:flex-row  w-[80%] m-auto gap-6 screen-1020:mt-12 screen-1020:mb-12 ">
+      <div className="flex flex-col mt-16 screen-630:flex-row  w-[80%] m-auto gap-6 screen-1020:mt-12 screen-1020:mb-12 ">
         <Banner />
-        <Banner />
+        <Banner display={"hidden"} />
       </div>
 
       {/* Galeria */}
-      <Section
-        width={"screen-500:w-[90%] screen-1020:w-[85%]"}
-        title={"Galeria"}
-        allOption={"Ver todas"}
-        box={"mt-8 screen-1020:mt-12"}
-        styleSet="w-48 h-48 -bottom-14 -left-5"
-        styleBackground="bg-secundary"
-      >
-        <GaleryGrid />
-      </Section>
+      <div className="w-full bg-gradient-to-t from-zinc-900 from-[66%] to-zinc-600   pb-14 pl-4 pr-4 pt-14 mt-16 mb-6 relative  z-10  block m-auto select-none">
+        {isHighestThan930 ? (
+          <div className="flex w-full justify-between">
+            <GaleryGrid />
+
+            <div className="w-[60%] ml-10 mt-10 ">
+              <h3 className="text-pink-300 text-3xl mb-6">
+                Excelência em Cada Detalhe
+              </h3>
+
+              <p className="text-base text-zinc-400">
+                Cada imagem desta galeria conta uma história de dedicação,
+                qualidade e inovação. Nossos serviços são realizados com
+                precisão e compromisso, garantindo resultados que superam
+                expectativas. Explore cada projeto, inspire-se com a nossa
+                excelência e descubra como podemos transformar sua visão em
+                realidade.
+              </p>
+
+              <button className="text-sm text-zinc-900 hover:bg-pink-400 bg-pink-300 p-2 mt-8 rounded-full w-40 ">
+                Veja a nossa galeria
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="pb-10">
+            <div className="mb-10  ">
+              <h2 className="text-lg text-pink-300 mb-3 ">
+                {" "}
+                Excelência em Cada Detalhe
+              </h2>
+              <p className="text-zinc-400 text-sm">
+                Explore cada projeto, inspire-se com a nossa excelência e
+                descubra como podemos transformar sua visão em realidade.
+              </p>
+
+              <button className="text-sm text-zinc-900 hover:bg-pink-400 bg-pink-300 p-2 mt-4 rounded-full w-40 ">
+                Veja a nossa galeria
+              </button>
+            </div>
+            <GaleryGrid />
+          </div>
+        )}
+      </div>
 
       {/* Testimunial */}
       <Section

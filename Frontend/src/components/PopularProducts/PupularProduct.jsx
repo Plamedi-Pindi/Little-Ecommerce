@@ -31,9 +31,9 @@ export default function PupularProduct({
   return (
     <div
       onClick={() => navigate(`/produtos/detalhes/${id}`)}
-      className={`ProductCard bg-white shrink-0 rounded-xl mb-3 shadow-xl shadow-zinc-600/30  cursor-pointer ${margin} flex items-center  w-full h-20 screen-630:w-[48%] screen-830:w-[32%] `}
+      className={`ProductCard bg-white shrink-0 rounded-xl mb-3 shadow-xl shadow-zinc-600/30  cursor-pointer ${margin} flex items-center  w-full h-20 screen-630:w-[48%]  screen-830:w-[32%]  `}
     >
-      {/* Product picture */}
+      {/* Product picture */} 
       <div
         className={`ProdCardShap w-20 h-full  rounded-l-xl bg-secundary flex justify-center items-center p- mr-3 `}
       >

@@ -13,7 +13,7 @@ export default function Section({
   return (
     <section className={`pl-4 pr-4  mb-6 ${box} ${width} relative  z-10  block m-auto select-none  `}>
       <div className="flex justify-between items-center  mb-3 screen-830:mb-8 ">
-        <h2 className="text-lg font-bold text-[#7b4c2d] "> {title} </h2>
+        <h2 className="text-lg font-bold text-[#7b4c2d] screen-930:text-xl "> {title} </h2>
 
         <button className="text-sm text-[#7b4c2d] flex items-center">
           {allOption}

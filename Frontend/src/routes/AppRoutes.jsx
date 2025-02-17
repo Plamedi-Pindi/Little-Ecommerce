@@ -23,7 +23,14 @@ export default function AppRoutes() {
   return (
     <CartProvider>
       <Router>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense
+          fallback={
+            <div className="w-full h-screen flex flex-col items-center justify-center bg-secundary">
+              <p className="text-2xl text-details font-bold italic">Quicadorcas...</p>
+              <img src="/loading.gif" alt="" />
+            </div>
+          }
+        >
           <Routes>
             <Route
               path="/"

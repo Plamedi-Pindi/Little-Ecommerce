@@ -37,7 +37,7 @@ export default function Header({ toggle, toggleVisibility }) {
   };
 
   return (
-    <div className="flex justify-between p-2 pl-4 pr-4 pt-4 mb-4 items-center relative screen-500:w-[90%] block m-auto  screen-1020:w-[85%] ">
+    <div className="flex justify-between p-2 pl-4 pr-4 pt-4 mb-4 items-center relative screen-500:w-[90%] block m-auto  screen-1020:w-[90%] ">
       <MenuToggle toggle={toggle} toggleVisibility={toggleVisibility} />
 
       {/*  */}

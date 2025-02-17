@@ -100,13 +100,7 @@ export default function Details() {
         </ul>
       </section>
 
-      <div className="w-full h-96 bg-secundary pt-4 p-1 mb-4 clip ">
-        {/* Nav */}
-        {/* <NavigateBackHeader
-          color={"text-zinc-200"}
-          backTo={handleBacktoClick}
-        /> */}
-
+      <div className="w-full h-96  bg-secundary pt-10 p-1 mb-4 clip ">
         {/* Product Image display Start */}
         <div className=" w-full h-80 flex flex-row justify-between pr-4 pl-4">
           {/* Other Images */}
@@ -124,7 +118,7 @@ export default function Details() {
           {/* Product Image display End */}
 
           {/* Main Image */}
-          <div className=" h-60">
+          <div className=" h-60 w-[13rem]">
             <img
               src={product.image}
               alt="Product image"

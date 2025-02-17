@@ -61,7 +61,7 @@ export default function BenefitShowComponent({ desc, title, imgUrl, imgDim }) {
     );
   } else {
     elemtens = (
-      <div className="Card bg-white shadow-lg w-48 h-56 p-2 rounded-xl flex flex-col items-center overflow-hidden shrink-0 relative">
+      <div className="Card bg-white shadow-lg w-48 h-56 screen-930:w-[14rem] screen-930:h-[16rem] p-2 screen-930:p-7 rounded-xl flex flex-col items-center overflow-hidden shrink-0 relative">
         
         <img
           onLoadStart={handleImageLoadStart}
@@ -82,7 +82,7 @@ export default function BenefitShowComponent({ desc, title, imgUrl, imgDim }) {
         <p className="text-center text-sm text-[#7b4c2d] z-10 cursor-default">{desc}</p>
 
 
-          <div className="cardStyle bg-secundary   w-[4rem] h-[4rem]  absolute -bottom-10 -right-5  mb-3 mt-2 rounded-full"></div>
+          <div className="cardStyle bg-secundary   w-[4rem] h-[4rem] screen-930:  absolute -bottom-10 -right-5  mb-3 mt-2 rounded-full"></div>
       </div>
     );
   }

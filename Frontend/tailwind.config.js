@@ -22,6 +22,8 @@ export default {
         'screen-830': '830px',
         'screen-930': '930px',
         'screen-1020': '1020px',
+        'screen-1200': '1200px',
+
       },
     },
       
