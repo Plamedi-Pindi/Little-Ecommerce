@@ -68,10 +68,10 @@ export default function Cart({ toggle, toggleVisibility }) {
       {/* Alerts */}
       <Success message="Messanges aparecem aqui!" />
 
+      {/* Bradcramb */}
       <section className="w-full bg-details2 p-3">
         <h1 className="text-center text-lg font-bold mb-1">Carrinho</h1>
 
-        {/* Bradcramb */}
         <ul className="flex items-center justify-center text-sm italic bradcramb">
           <li onClick={() => navigate("/")}>Home</li>
           <span className="ml-2 mr-2">/</span>
@@ -81,27 +81,30 @@ export default function Cart({ toggle, toggleVisibility }) {
 
       <section className="pr-4 pl-4 w-full mt-5">
         <CardList>
-          {cart.length == 0
-            ? <>
+          {cart.length == 0 ? (
+            <>
               <div className="flex h-40 flex-col items-center justify-center text-center bg-red-300/50 p-2">
-                <h2 className="text-lg font-bold">Opss 😅, O teu carrinho está vaizio!</h2>
+                <h2 className="text-lg font-bold">
+                  Opss 😅, O teu carrinho está vaizio!
+                </h2>
                 <p>Seleciona produtos para o carrinho. </p>
                 <p className="text-blue-600 mt-2">👉👉 Página de produtos</p>
-                
               </div>
             </>
-            : cart.map((item) => {
-                const { id, image, productName } = item;
-                return (
-                  <CardItem
-                    key={id}
-                    price={20000}
-                    imgUrl={image}
-                    name={productName}
-                    id={id}
-                  />
-                );
-              })}
+          ) : (
+            cart.map((item) => {
+              const { id, image, productName } = item;
+              return (
+                <CardItem
+                  key={id}
+                  price={20000}
+                  imgUrl={image}
+                  name={productName}
+                  id={id}
+                />
+              );
+            })
+          )}
         </CardList>
       </section>
 

@@ -94,7 +94,7 @@ export default function Details() {
 
         {/* Bradcramb */}
         <ul className="flex items-center justify-center text-sm italic bradcramb">
-          <li onClick={() => navigate("/")}>Home</li>
+          <li onClick={() => navigate("/loja")}>Loja</li>
           <span className="ml-2 mr-2">/</span>
           <li className="text-details">Detalhes</li>
         </ul>

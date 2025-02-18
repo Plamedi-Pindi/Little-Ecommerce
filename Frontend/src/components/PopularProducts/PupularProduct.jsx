@@ -46,7 +46,7 @@ export default function PupularProduct({
 
       {/* TITLE */}
       <div className="pl-2 pr-2  w-[70%]">
-        <h3 className="text-base text-zinc-800 font-bold cursor-default">
+        <h3 className="text-sm screen-930:text-base text-zinc-800 font-bold cursor-default">
           {title}
         </h3>
 
