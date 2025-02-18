@@ -21,6 +21,11 @@ import {
 // Main Function
 export default function Header({ toggle, toggleVisibility }) {
   const [myAccountDisplayed, setMyAccountDisplayed] = useState(false);
+  const [active, setActive] = useState(["Home", "Loja", "About"]);
+
+  const isHomeActive = active === "Home";
+  const isLojaActive = active === "Loja";
+  const isAboutActive = active === "About";
 
   const { cart } = useCart();
 
@@ -50,6 +55,9 @@ export default function Header({ toggle, toggleVisibility }) {
           <li className="relative hover:border-t border-details cursor-pointer select-none hover:text-details">
             Home
             <PingAnimation position={"left-3 top-5"} />
+          </li>
+          <li className=" hover:border-t border-details cursor-pointer select-none hover:text-details">
+            Loja
           </li>
           <li className=" hover:border-t border-details cursor-pointer select-none hover:text-details">
             Sobre

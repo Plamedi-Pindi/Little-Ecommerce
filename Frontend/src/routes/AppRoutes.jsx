@@ -7,6 +7,7 @@ const Layout = lazy(() => import("../layouts/Layout"));
 const Home = lazy(() => import("../pages/Home/Home"));
 const Details = lazy(() => import("../pages/Products/Details"));
 const Cart = lazy(() => import("../pages/Cart/Cart"));
+const Shop = lazy(() => import("../pages/Products/shop/Shop"));
 
 import { CartProvider } from "../contexts/CartContext";
 
@@ -26,27 +27,40 @@ export default function AppRoutes() {
         <Suspense
           fallback={
             <div className="w-full h-screen flex flex-col items-center justify-center bg-secundary">
-              <p className="text-2xl text-details font-bold italic">Quicadorcas...</p>
+              <p className="text-2xl text-details font-bold italic">
+                Quicadorcas...
+              </p>
               <img src="/loading.gif" alt="" />
             </div>
           }
         >
           <Routes>
+            {/* Layout */}
             <Route
               path="/"
               element={<Layout toggle={toggle} setToggle={setToggle} />}
             >
+              {/*Home  */}
               <Route
                 index
                 element={
                   <Home toggle={toggle} toggleVisibility={toggleVisibility} />
                 }
               />
+              {/* Product Details */}
               <Route path="/produtos/detalhes/:id" element={<Details />} />
+              {/* Cart */}
               <Route
                 path="/cart"
                 element={
                   <Cart toggle={toggle} toggleVisibility={toggleVisibility} />
+                }
+              />
+              {/* Shop */}
+              <Route
+                path="/loja"
+                element={
+                  <Shop toggle={toggle} toggleVisibility={toggleVisibility} />
                 }
               />
             </Route>

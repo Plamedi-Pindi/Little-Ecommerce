@@ -2,13 +2,19 @@
 import { BsX } from "react-icons/bs";
 
 // Hooks
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Component
 import { PingAnimation } from "../PingAnimation/PingAnimation";
 
 export default function Menu({ toggle, setToggle }) {
+  const [active, setActive] = useState("Home"); // ["Home", "Loja", "About"]
+
+  const isHomeActive = active === "Home";
+  const isLojaActive = active === "Loja";
+  const isAboutActive = active === "About";
+
   // Function to close sidebar
   const closeMenu = () => {
     setToggle(false);
@@ -20,6 +26,7 @@ export default function Menu({ toggle, setToggle }) {
   // Function to navigate to another page
   const navigate = useNavigate();
 
+  // Function to hid and show sidebar Start =======================
   useEffect(() => {
     const nav = navRef.current;
     if (nav) {
@@ -39,9 +46,23 @@ export default function Menu({ toggle, setToggle }) {
         menuListClose();
       }
     }
-
     return () => {};
   }, [toggle]);
+  // Function to hid and show sidebar End =======================
+
+  // Function to navigate to Shop page
+  const handleLojaClick = () => {
+    navigate("/loja"); // Navigate to the route
+    closeMenu(); // Close the sidebar
+    setActive("Loja"); // Active Lojas page
+  };
+
+  // Function to navigate to Home page
+  const handleHomeClick = () => {
+    navigate("/"); // Navigate to the route
+    closeMenu(); // Close the sidebar
+    setActive("Home"); // Active Lojas page
+  };
 
   return (
     <>
@@ -72,15 +93,24 @@ export default function Menu({ toggle, setToggle }) {
           }`}
         >
           <li
-            onClick={() => navigate("/")}
+            onClick={handleHomeClick}
             className="mt-2 flex items-center relative border-b border-details/30 pb-2"
           >
-            <PingAnimation position={"left-14 top-2"} /> Home
+            Home
+            {isHomeActive && <PingAnimation position={"left-14 top-2"} />}
           </li>
-          <li className="mt-2 flex items-center border-b border-details/30 pb-2">
+          <li
+            onClick={handleLojaClick}
+            className="mt-2 flex items-center relative border-b border-details/30 pb-2"
+          >
+            Loja
+            {isLojaActive && <PingAnimation position={"left-14 top-2"} />}
+          </li>
+          <li className="mt-2 flex items-center relative border-b border-details/30 pb-2">
             Sobre
+            {isAboutActive && <PingAnimation position={"left-14 top-2"} />}
           </li>
-          <li className="mt-2 flex items-center border-b border-details/30 pb-2">
+          <li className="mt-2 flex items-center relative border-b border-details/30 pb-2">
             Serviços
           </li>
         </ul>
