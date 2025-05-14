@@ -27,7 +27,7 @@ export default function Cart({ toggle, toggleVisibility }) {
 
   const { cart, removeFromCart } = useCart();
 
-  //
+  // Function to calculate data from api
   useEffect(() => {
     let calculo = 0;
     let abano = 0;
