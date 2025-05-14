@@ -5,17 +5,20 @@ import FlexContainer from "../../components/Containers/FlexContainer";
 import LoveComponent from "../../components/Rate/LoveComponent";
 import Products from "../../../public/data/Produtos.json";
 import Header from "../../layouts/components/Header";
+import { Success } from "../../components/Alerts/Success";
+import { Worning } from "../../components/Alerts/Worning";
+
 
 // Utils
 import { FormatCurrency } from "../../utils/Currency";
 
 // Hooks
 import { useNavigate, useParams } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCart } from "../../contexts/CartContext";
 
 // icons
-import { BsCheck2, BsCartPlus } from "react-icons/bs";
+import { BsCheck2, BsCartPlus, BsCartCheckFill } from "react-icons/bs";
 
 // CSS
 import "./Details.css";
@@ -30,23 +33,37 @@ const OtherImagesCard = ({ imgUrl, onClick }) => {
 };
 
 // MAIN FUNCTION
-export default function Details() {
+export default function Details({toggle, setToggle}) {
   const [colorIndex, setColorIndex] = useState(0); // State for color index
   const [mainImage, setMainImage] = useState("/2.jpg"); // State for Main image rendering
   const [isOnCart, setIsOnCart] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
+  const [successAlertStatus, setSuccessAlertStatus] = useState(false);
+  const [worningAlertStatus, setWorningAlertStatus] = useState(false);
 
-  const { addToCart } = useCart();
+  const { addToCart, cart } = useCart();
 
   // Function to navigate to another page
   const navigate = useNavigate();
 
   const { id } = useParams();
 
+  // Finding the product
   let product = {};
   Products.filter((item) => item.id === parseInt(id)).map(
     (item) => (product = item)
   );
 
+  useEffect(() => {
+    // Check if the product alread was add to cart
+    const esxistProduct = cart.filter((prod) => prod.id === product.id);
+    if (Array.isArray(esxistProduct) && esxistProduct.length > 0) {
+      setIsOnCart(true);    // 
+
+    }
+  })
+
+  // Add to cart function
   const handleAddToCart = () => {
     const newPedido = {
       id: product.id,
@@ -57,8 +74,24 @@ export default function Details() {
       type: product.type,
     };
 
-    addToCart(newPedido);
+    addToCart(newPedido); // Add to cart
+
+    setAlertMessage("Produfo foi adicionado à sacola!");
+    setSuccessAlertStatus(true);
+
+    setTimeout(() => {
+      setSuccessAlertStatus(false);
+    }, 2500);
   };
+
+  const AlertProduteAlreadAdded = () => {
+    setAlertMessage("Este produto já está no carrinho !");
+    setWorningAlertStatus(true);
+
+    setTimeout(() => {
+      setWorningAlertStatus(false);
+    }, 2500);
+  }
 
   // List of products colors
   const color = ["bg-rose-400", "bg-pink-400", "bg-blue-400", "bg-yellow-400"];
@@ -88,7 +121,13 @@ export default function Details() {
 
   return (
     <div className="w-full h-screen overflow-y-auto  bg-primary pb-12">
-      <Header />
+      {/* Header */}
+      <Header toggle={toggle} toggleVisibility={setToggle} />
+
+      {/* Alerts */}
+      <Success message={alertMessage} state={successAlertStatus} />
+      <Worning message={alertMessage} state={worningAlertStatus} />
+
       <section className="w-full bg-details2 p-3">
         <h1 className="text-center text-lg font-bold mb-1">Detalhes do produto</h1>
 
@@ -169,20 +208,30 @@ export default function Details() {
         </div>
       </Section>
 
+      {/* Button to add product to cart start */}
       <div className="pr-4 pl-4 z-[10] fixed bottom-4 flex justify-end items-center  w-full">
         <button
-          onClick={handleAddToCart}
-          className="text-sm bg-neutral-700 text-white w-40 h-10 p-1 rounded-lg flex items-center justify-center"
+          onClick={!isOnCart ? handleAddToCart : AlertProduteAlreadAdded}
+          className={`text-sm  text-white w-40 h-10 p-1 rounded-lg flex items-center justify-center ${isOnCart ? 'bg-neutral-700' : 'bg-neutral-700'}`}
         >
-          <BsCartPlus className="mr-2 text-base" />
-          <span>Adicionar à sacola</span>
+          {isOnCart ? (
+            <BsCartCheckFill className="mr-2 text-base" />
+
+          ) : (
+            <BsCartPlus className="mr-2 text-base" />
+          )}
+          <span> {isOnCart ? 'Já adicionado' : ' Adicionar à sacola'} </span>
         </button>
       </div>
+      {/* Button to add product to cart end */}
 
       {/* Footer */}
       {/* <Footer></Footer> */}
+
+
     </div>
   );
+
 }
 
 // Component to Render the circle shape tha going to display de product color
@@ -190,9 +239,8 @@ const Circle = ({ size, background, margin, onclick, isClicked }) => {
   return (
     <div
       onClick={onclick}
-      className={` ${
-        isClicked ? " border-blue-400" : "border-white"
-      } border p-0.5 ${margin} rounded-full`}
+      className={` ${isClicked ? " border-blue-400" : "border-white"
+        } border p-0.5 ${margin} rounded-full`}
     >
       <div
         className={`${size} ${background} rounded-full flex items-center justify-center text-white`}

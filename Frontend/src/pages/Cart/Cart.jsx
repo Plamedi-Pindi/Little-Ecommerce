@@ -4,7 +4,7 @@ import CardItem from "./components/CardItem";
 import CardList from "./components/cardList";
 import Footer from "../../layouts/components/Footer";
 import { FormatCurrency } from "../../utils/Currency";
-import { Success } from "../../components/Alerts/Alerts.";
+import { Success } from "../../components/Alerts/Success";
 
 // Hooks
 import { useCart } from "../../contexts/CartContext";
@@ -20,10 +20,12 @@ export default function Cart({ toggle, toggleVisibility }) {
     lencos: 0,
     quantity: 0,
   });
+  const [alertMessage, setAlertMessage] = useState("");
+  const [sucessAlertStatus, setSucessAlertStatus] = useState(false);
 
   const navigate = useNavigate();
 
-  const { cart } = useCart();
+  const { cart, removeFromCart } = useCart();
 
   //
   useEffect(() => {
@@ -60,13 +62,26 @@ export default function Cart({ toggle, toggleVisibility }) {
     };
   }, [cart]);
 
+//  Functio to remove item from Cart
+  const handleSucessAlert = (id) => {
+    removeFromCart(id);                                     // Remove item from cart
+
+    setAlertMessage("O item foi eliminado com sucesso!");  // Set the alert message
+    setSucessAlertStatus(true);                            // set alert to be displayed
+
+    setTimeout(() => {                                     // set timeout to hidde the alert component
+      setSucessAlertStatus(false)
+    }, 2500);
+  }
+  
+
   return (
     <div className="h-screen overflow-y-auto relative bg-primary overflow-hidden">
       {/* header */}
       <Header toggle={toggle} toggleVisibility={toggleVisibility} />
 
-      {/* Alerts */}
-      <Success message="Messanges aparecem aqui!" />
+      {/* Alert */}
+      <Success message={alertMessage} state={sucessAlertStatus} />
 
       {/* Bradcramb */}
       <section className="w-full bg-details2 p-3">
@@ -101,6 +116,7 @@ export default function Cart({ toggle, toggleVisibility }) {
                   imgUrl={image}
                   name={productName}
                   id={id}
+                  onClick={()=> handleSucessAlert(id)}
                 />
               );
             })

@@ -8,13 +8,13 @@ import { BsPlus, BsDash, BsTrash3 } from "react-icons/bs";
 import { useState, useEffect } from "react";
 import { useCart } from "../../../contexts/CartContext";
 
-export default function CardItem({ price, imgUrl, name, id }) {
+export default function CardItem({ price, imgUrl, name, id, onClick }) {
   const [productTotal, setProductTotal] = useState(0); // Total of product
 
   const [islonger, setisLonger] = useState(false);
 
   /** */
-  const { cart, removeFromCart, UpdateAddQuantity, UpdateSubQuantity } =
+  const { cart, UpdateAddQuantity, UpdateSubQuantity } =
     useCart();
 
   //
@@ -77,7 +77,7 @@ export default function CardItem({ price, imgUrl, name, id }) {
         </p>
 
         {/* Remove button */}
-        <button onClick={() => removeFromCart(id)} className="block mt-3">
+        <button onClick={ onClick} className="block mt-3">
           <BsTrash3 className="text-lg text-red-400" />
         </button>
       </div>

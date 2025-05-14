@@ -48,7 +48,7 @@ export default function AppRoutes() {
                 }
               />
               {/* Product Details */}
-              <Route path="/produtos/detalhes/:id" element={<Details />} />
+              <Route path="/produtos/detalhes/:id" element={<Details setToggle={setToggle} toggle={toggle} />} />
               {/* Cart */}
               <Route
                 path="/cart"
